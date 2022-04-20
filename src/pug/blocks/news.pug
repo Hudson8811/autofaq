@@ -1,0 +1,29 @@
+section.news
+	.container
+		.news__block
+			.topic.topic--dark.news__topic новости
+			.news__slider.news__slider--mb.swiper-container.__js_slider-news
+				.swiper-wrapper
+					each item in NEWS
+						+news-card(
+							item.img,
+							'',
+							item.day,
+							item.month,
+							item.year,
+							item.text,
+							'swiper-slide news__item'
+						)
+			.topic.topic--dark.news__topic публикации
+			.news__slider.news__slider--mt.swiper-container.__js_slider-publish
+				.swiper-wrapper
+					each item in PUBLISH
+						+news-card(
+							'',
+							item.brand,
+							'',
+							item.month,
+							item.year,
+							item.text,
+							'swiper-slide news-card--publish news__item'
+						)

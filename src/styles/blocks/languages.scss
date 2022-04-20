@@ -1,0 +1,161 @@
+.languages {
+	background: linear-gradient(225deg, #255ec1 19.95%, #47d6aa 91.87%);
+	padding: 295px 0 185px;
+
+	@include max(lg) {
+		padding: 33px 0 15px;
+	}
+
+	&__title {
+		font-size: 308px;
+		line-height: 308px;
+		letter-spacing: -16.0592px;
+		color: $white;
+		text-align: center;
+		border-bottom: 1px solid rgba($white, 0.5);
+		padding-bottom: 78px;
+
+		@include max(xl) {
+			font-size: 230px;
+			line-height: 230px;
+		}
+
+		@include max(lg) {
+			font-size: 57px;
+			line-height: 43px;
+			letter-spacing: -2.91312px;
+			padding-bottom: 29px;
+		}
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 26px;
+
+		@include max(lg) {
+			flex-wrap: wrap;
+			padding-top: 12px;
+		}
+
+		> p {
+			max-width: 300px;
+			font-size: 48px;
+			line-height: 52px;
+			letter-spacing: -1.4px;
+			color: $white;
+
+			@include max(lg) {
+				max-width: 100%;
+				width: 50%;
+				font-size: 24px;
+				line-height: 24px;
+			}
+		}
+	}
+
+	&__model {
+		margin-top: -253px;
+		padding-right: 50px;
+
+		@include max(lg) {
+			width: 177px;
+			margin: 31px auto 0;
+			padding-right: 0;
+		}
+	}
+
+	&__list {
+		max-width: 250px;
+
+		@include max(lg) {
+			max-width: calc(100% + 18px);
+			width: calc(100% + 18px);
+			margin-top: 40px;
+			margin-right: -18px;
+		}
+
+		ul {
+			.swiper-wrapper {
+				flex-wrap: wrap;
+				justify-content: space-between;
+
+				@include max(lg) {
+					flex-wrap: nowrap;
+				}
+			}
+
+			li {
+				width: 39%;
+
+				&.active {
+					@include max(lg) {
+						background-color: $green-45;
+					}
+
+					a {
+						color: $white;
+					}
+				}
+
+				@include max(lg) {
+					width: auto;
+					padding: 13px 32px;
+					background-color: rgba($white, 0.1);
+					border-radius: 200px;
+				}
+
+				a {
+					font-size: 13px;
+					line-height: 15px;
+					font-weight: 600;
+					letter-spacing: 0.025em;
+					text-transform: uppercase;
+					color: rgba($white, 0.5);
+
+					@include max(lg) {
+						font-size: 10px;
+						line-height: 12px;
+						color: $white;
+					}
+
+					@include hover {
+						color: $white;
+					}
+				}
+
+				+ li {
+					margin-bottom: 16px;
+				}
+			}
+		}
+	}
+
+	&__text {
+		max-width: 345px;
+		font-size: 25px;
+		line-height: 30px;
+		color: $white;
+		margin-top: 158px;
+
+		@include max(lg) {
+			display: none;
+			font-size: 12px;
+			line-height: 140.3%;
+			letter-spacing: -0.015em;
+			color: rgba($white, 0.74);
+			padding-left: 25px;
+		}
+
+		&--mobile {
+			display: none;
+
+			@include max(lg) {
+				min-width: 50%;
+				max-width: 50%;
+				display: block;
+				margin-top: 0;
+			}
+		}
+	}
+}

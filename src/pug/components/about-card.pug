@@ -1,0 +1,8 @@
+mixin about-card(title, topic, text, img, className)
+	.about-card(class= className)
+		.about-card__top
+			.about-card__title!= title
+			.about-card__topic!= topic
+		.about-card__bg
+			img(src='images/about-card/' + img + '.png', srcset='images/about-card/' + img + '@2x.png 2x', alt='')
+		.about-card__text!= text

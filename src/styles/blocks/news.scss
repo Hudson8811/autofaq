@@ -1,0 +1,46 @@
+.news {
+	padding: 45px 0 117px;
+	overflow: hidden;
+
+	@include max(lg) {
+		padding: 25px 0 23px;
+	}
+
+	&__topic {
+		border-bottom: 1px solid rgba($black, 0.2);
+		padding-bottom: 43px;
+
+		@include max(lg) {
+			width: calc(100% + 36px);
+			margin-left: -18px;
+			padding: 0 18px 28px;
+		}
+	}
+
+	&__slider {
+		display: flex;
+		margin-top: 53px;
+		margin-right: -55px;
+
+		@include max(lg) {
+			margin-top: 25px;
+			margin-right: -18px;
+		}
+
+		&--mb {
+			margin-bottom: 116px;
+
+			@include max(lg) {
+				margin-bottom: 23px;
+			}
+		}
+
+		&--mt {
+			margin-top: 85px;
+
+			@include max(lg) {
+				margin-top: 26px;
+			}
+		}
+	}
+}

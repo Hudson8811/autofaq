@@ -1,0 +1,31 @@
+section.calculate
+	.container
+		.calculate__top
+			.calculate__ready Готовы вооружиться современными AI технологиями и начать предоставлять лучший клиентский сервис?
+			.calculate__title <span>Рассчитайте эффект</span> от внедрения Autofaq в ваш бизнес
+		.calculate__middle
+			.calculate__calc
+				.calculate__calc-item
+					span.active Клиентская поддержка
+						button
+							+icon('chevron-down')(width='10', height='6')
+				.calculate__calc-item
+					span Сотрудников на поддержке
+					.range-value 50
+					input(type='range', min='0' max='50' value='50' step='1')
+				.calculate__calc-item
+					span Обращений в месяц
+					.range-value 50
+					input(type='range', min='0' max='50' value='50' step='1')
+			+button('оставить заявку', 'button--green calculate__request', '#')
+		.calculate__result
+			.calculate__result-item
+				p <span class="result-1">20</span>+
+				p Миллионово экономии в год <br> на ФОТ
+			.calculate__result-item
+				p x<span class="result-2">3</span>
+				p Рост эффективности HelpDesk
+			.calculate__result-item
+				p <span class="result-3">337</span>%
+				p ROI за год
+		+button('оставить заявку', 'button--green calculate__request calculate__request--mobile', '#')

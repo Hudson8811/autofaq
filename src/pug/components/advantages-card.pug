@@ -1,0 +1,8 @@
+mixin advantages-card(img, title, text, className)
+	.advantages-card(class= className)
+		.advantages-card__bg
+			img(src='images/advantages-card/' + img + '.png', srcset='images/advantages-card/' + img + '@2x.png 2x', alt='')
+		.advantages-card__title!= title
+		.advantages-card__text!= text
+		.advantages-card__more
+			a(href='#', target='_blank') Подробнее

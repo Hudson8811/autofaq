@@ -1,0 +1,31 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 28.5px 42px;
+	background-color: rgba($blue-27, 0.1);
+	border-radius: 67px;
+	font-size: 13px;
+	line-height: 15px;
+	font-weight: 600;
+	letter-spacing: 0.025em;
+	text-transform: uppercase;
+	color: $blue-26;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+	@include max(sm) {
+		font-size: 10px;
+		line-height: 12px;
+	}
+
+	&--green {
+		background-color: $green;
+		color: $white;
+	}
+
+	&--blue {
+		background-color: $blue-27;
+		color: $white;
+	}
+}

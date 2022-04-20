@@ -1,0 +1,36 @@
+section.features
+	.container
+		.topic.features__topic Key features
+		.features__marquee.js-marquee-features Омниканальность
+		.features__slider.swiper-container.__js_slider-features
+			.features__counter
+				span.current 01
+				span.all 03
+			+slider-arrows('features__nav')
+			.swiper-wrapper
+				.swiper-slide.features__slide(data-marquee='Омниканальность')
+					.features__marquee-static ОМНИКАНАЛЬНОСТЬ
+					.features__title <span>Единая <br> диалоговая среда</span> взаимодействия <br> с клиентами
+					.features__text 65% людей предпочитают написать компании, а не позвонить. Объедините
+						|  поддержку и продажи через мессенджеры, социальные сети, чат на сайте, e-mail и мобильное
+						|  приложение на основе Help Desk AutoFAQ. Чат-бот всегда ответит на вопрос или переведет
+						|  обращение на оператора. Поддерживается полный цикл коммуникации: как входящий, так и исходящий.
+					.features__mockup
+						img(src='images/features/1.png', srcset='images/features/1@2x.png 2x', alt='')
+				.swiper-slide.features__slide(data-marquee='Человек + AI')
+					.features__marquee-static Человек + AI
+					.features__title <span>Интеллектуальный</span> помощник оператора
+					.features__text Чат бот и операторы объединены в одном сервисе и дополняют друг друга. AutoFAQ автоматически
+						|  отвечает или уточняет поступивший вопрос, если система уверена в ответе.
+						|  Вы сами управляете уровнем уверенности искусственного интеллекта для автоматического ответа
+					.features__mockup
+						img(src='images/features/2.png', srcset='images/features/2@2x.png 2x', alt='')
+				.swiper-slide.features__slide(data-marquee='Самообучение')
+					.features__marquee-static Самообучение
+					.features__title <span>Система запоминает ответы</span> и пополняет базу знаний
+					.features__text AutoFAQ анализирует диалоги операторов и предоставляет удобный интерфейс для обучения
+						|  системы и добавления новых подсказок для операторов.
+					.features__note
+						img(src='images/features/4.png', srcset='images/features/4@2x.png 2x', alt='')
+						span <span>Рост за месяц до</span> 70%
+						.features__text Рост с 30% до 70% <br> автоматических ответов <br> за 1 месяц

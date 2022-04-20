@@ -1,0 +1,147 @@
+html {
+}
+
+body {
+	font-size: 16px;
+	font-weight: 400;
+	font-family: $mainFont;
+	color: $textMainColor;
+	background-color: $white;
+}
+
+header,
+main,
+footer {
+	padding-left: 128px;
+
+	@include max(lg) {
+		padding-left: 0;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: $textMainColor;
+}
+
+ul,
+ol,
+nav {
+	list-style: none;
+	padding: 0;
+}
+
+input,
+button {
+	-webkit-appearance: none;
+}
+
+input,
+button,
+select,
+textarea {
+	font: inherit;
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+
+input,
+textarea {
+	&::placeholder {
+		font-family: $mainFont;
+	}
+
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+main {
+	overflow: hidden;
+}
+
+.container {
+	max-width: 100%;
+	width: 1710px;
+	padding: 0 15px;
+	margin: 0 auto;
+
+	@include max(lg) {
+		padding: 0 18px;
+	}
+}
+
+.topic {
+	font-size: 13px;
+	line-height: 15px;
+	font-weight: 600;
+	letter-spacing: 0.025em;
+	text-transform: uppercase;
+	color: $white;
+
+	@include max(sm) {
+		font-size: 10px;
+		line-height: 12px;
+	}
+
+	&--dark {
+		color: $textMainColor;
+	}
+}
+
+/* Select2 custom */
+.select2-container--default {
+	&.select2-container--open {
+		.select2-selection--single .select2-selection__arrow b {
+			border: 0;
+		}
+	}
+
+	.select2-selection--single {
+		background-color: transparent;
+		border: 0;
+
+		.select2-selection {
+			&__rendered {
+				font-family: $secondFont;
+				font-size: 13px;
+				font-weight: 700;
+				letter-spacing: 0.025em;
+				color: $textMainColor;
+				text-transform: uppercase;
+			}
+
+			&__placeholder {
+				font-size: 16px;
+				letter-spacing: -0.02em;
+				color: $white;
+			}
+
+			&__arrow {
+				width: 10px;
+				height: 6px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+
+				b {
+					width: 100%;
+					height: 100%;
+					display: block;
+					margin: 0;
+					border: none;
+					position: relative;
+					top: 0;
+					left: 0;
+					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23484848' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+			}
+		}
+	}
+}

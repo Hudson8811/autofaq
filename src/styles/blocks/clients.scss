@@ -1,0 +1,41 @@
+.clients {
+	$parent: &;
+
+	background: linear-gradient(353.32deg, #255ec1 21.3%, #47d6aa 94.76%);
+
+	&__grid {
+		display: flex;
+		padding-top: 516px;
+
+		@include max(lg) {
+			flex-direction: column;
+			padding-top: 115px;
+		}
+	}
+
+	&__col {
+		width: 50%;
+
+		@include max(lg) {
+			width: 100%;
+		}
+
+		&:last-child {
+			padding-top: 366px;
+
+			@include max(lg) {
+				padding-top: 0;
+			}
+
+			#{$parent}__item {
+				border-left: 1px solid rgba($white, 0.2);
+			}
+		}
+	}
+
+	&__item {
+		+ #{$parent}__item {
+			border-top: 1px solid rgba($white, 0.2);
+		}
+	}
+}

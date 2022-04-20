@@ -1,0 +1,26 @@
+.about {
+	display: flex;
+	position: relative;
+	z-index: 100;
+
+	@include max(lg) {
+		flex-direction: column;
+	}
+
+	&__item {
+		width: 50%;
+		position: relative;
+
+		@include max(lg) {
+			width: 100%;
+		}
+
+		&:nth-child(even) {
+			top: -191px;
+
+			@include max(lg) {
+				top: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+.advantages {
+	display: flex;
+	align-items: flex-start;
+	background-color: $blue-25;
+
+	@include max(lg) {
+		flex-direction: column;
+	}
+
+	&__item {
+		width: 33.3333%;
+
+		@include max(lg) {
+			width: 100%;
+		}
+
+		&:nth-child(2) {
+			margin-top: 178px;
+
+			@include max(lg) {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-child(3) {
+			margin-top: 340px;
+
+			@include max(lg) {
+				margin-top: 0;
+			}
+		}
+	}
+}

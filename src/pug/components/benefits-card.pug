@@ -1,0 +1,6 @@
+mixin benefits-card(coef, advantage, text, className)
+	.benefits-card(class= className)&attributes(attributes)
+		.benefits-card__top
+			.benefits-card__coef!= coef
+			.benefits-card__advantage!= advantage
+		.benefits-card__text!= text
