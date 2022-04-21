@@ -44,6 +44,7 @@
 		line-height: 96px;
 		letter-spacing: -4px;
 		color: rgba($white, 0.24);
+		transition: color 0.3s ease;
 
 		@include max(lg) {
 			font-size: 24px;
@@ -144,7 +145,7 @@
 			}
 
 			&::before {
-				width: 130%;
+				width: 120%;
 
 				@include max(lg) {
 					width: 100%;
@@ -239,6 +240,7 @@
 			position: absolute;
 			bottom: -1.5px;
 			left: 0;
+			z-index: 10;
 
 			&:focus {
 				outline: none;
@@ -295,6 +297,12 @@
 		height: 304px;
 		border-radius: 500px;
 		margin-top: -38px;
+
+		@include max(xl) {
+			max-width: 200px;
+			height: 200px;
+			text-align: center;
+		}
 
 		@include max(lg) {
 			display: none;

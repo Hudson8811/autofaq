@@ -1,0 +1,123 @@
+.tariffs-card {
+	color: $white;
+	padding: 30px 54px 60px;
+	border: 1px solid rgba($white, 0.2);
+	position: relative;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+
+	@include max(xl) {
+		padding: 30px 25px 50px;
+	}
+
+	@include hover {
+		box-shadow: 0 0 20px 0 rgba(34, 60, 80, 0.2);
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		background: rgba($white, 0.1);
+		backdrop-filter: blur(24px);
+		position: absolute;
+		top: -60px;
+		left: -60px;
+		right: -60px;
+		bottom: -60px;
+	}
+
+	&__content {
+		position: relative;
+	}
+
+	&__title {
+		font-size: 96px;
+		line-height: 98px;
+		letter-spacing: -4.5px;
+
+		@include max(xl) {
+			font-size: 60px;
+			line-height: 65px;
+			letter-spacing: -2.5px;
+		}
+	}
+
+	&__sibtitle {
+		max-width: 215px;
+		font-size: 25px;
+		line-height: 27px;
+		letter-spacing: -0.5px;
+		margin-top: 100px;
+		margin-bottom: 30px;
+	}
+
+	&__wrapper {
+		display: flex;
+		border-top: 1px solid rgba($white, 0.3);
+		padding-top: 26px;
+		padding-bottom: 74px;
+
+		&--pb0 {
+			padding-bottom: 0;
+		}
+	}
+
+	&__col {
+		width: 50%;
+		font-size: 16px;
+		line-height: 23px;
+		letter-spacing: -0.015em;
+		color: $white;
+
+		&:first-child {
+			color: rgba($white, 0.3);
+		}
+
+		p.price {
+			font-size: 35px;
+			line-height: 30px;
+			letter-spacing: -1px;
+
+			@include max(xl) {
+				font-size: 26px;
+				line-height: 32px;
+			}
+		}
+
+		p + p {
+			margin-top: 7px;
+		}
+	}
+
+	&__btn {
+		margin-top: 40px;
+
+		a {
+			width: 100%;
+			font-weight: 700;
+			color: $white;
+			background-color: rgba($white, 0.18);
+			transition: background-color 0.3s ease;
+
+			@include hover {
+				background-color: rgba($white, 0.3);
+			}
+		}
+	}
+
+	&--blue {
+		background-color: $blue-25;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	&--green {
+		background-color: $green;
+
+		&::before {
+			display: none;
+		}
+	}
+}

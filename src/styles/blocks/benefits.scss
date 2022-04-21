@@ -119,6 +119,7 @@
 
 	&__accordion {
 		margin-top: -18px;
+		position: relative;
 
 		@include max(lg) {
 			margin-top: 57px;
@@ -128,10 +129,16 @@
 	&__accordion-item {
 		padding: 0 59px;
 		border-bottom: 1px solid rgba($white, 0.2);
+		cursor: pointer;
+		transition: opacity 0.3s ease;
 
 		@include max(lg) {
 			padding: 0 18px;
 			border-bottom: 0;
+		}
+
+		@include hover {
+			opacity: 0.85;
 		}
 
 		&.active {

@@ -56,6 +56,7 @@
 		line-height: 96px;
 		letter-spacing: -4.5px;
 		color: rgba($white, 0.2);
+		transition: color 0.3s ease;
 
 		@include max(lg) {
 			font-size: 30px;
@@ -73,10 +74,6 @@
 			@include max(sm) {
 				margin-top: 85px;
 			}
-		}
-
-		&.active {
-			color: $white;
 		}
 
 		&--right {

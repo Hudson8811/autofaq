@@ -5,5 +5,7 @@
 
 
 //= ./partials/main.js
+//= ./partials/sidebar.js
+//= ./partials/header.js
 //= ./partials/swiper-init.js
 //= ./partials/swiper-mobile.js

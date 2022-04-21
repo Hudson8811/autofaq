@@ -169,6 +169,10 @@
 					letter-spacing: -0.015em;
 					color: rgba($white, 0.56);
 				}
+
+				@include hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}

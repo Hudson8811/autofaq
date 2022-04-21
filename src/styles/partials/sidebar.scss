@@ -1,4 +1,6 @@
 .sidebar {
+	$parent: &;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,7 +13,34 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 50;
+	z-index: 101;
+
+	&.open {
+		#{$parent} {
+			&__burger {
+				&::before {
+					transform: rotate(45deg) translateX(5px);
+
+					@include max(lg) {
+
+					}
+				}
+
+				&::after {
+					transform: rotate(-45deg) translateX(-5px);
+
+					@include max(lg) {
+
+					}
+				}
+			}
+
+			&__menu {
+				pointer-events: auto;
+				opacity: 1;
+			}
+		}
+	}
 
 	@include max(lg) {
 		flex-direction: row;
@@ -36,6 +65,21 @@
 		}
 	}
 
+	&__burger-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		flex-grow: 1;
+		cursor: pointer;
+
+		@include max(lg) {
+			width: auto;
+			height: 100%;
+			flex-grow: unset;
+		}
+	}
+
 	&__burger {
 		display: flex;
 		justify-content: space-between;
@@ -55,6 +99,7 @@
 			width: 4px;
 			height: 100%;
 			background-color: $textMainColor;
+			transition: transform 0.3s ease;
 
 			@include max(lg) {
 				width: 100%;
@@ -70,6 +115,201 @@
 
 		select {
 			width: 100%;
+		}
+	}
+
+	&__menu {
+		position: fixed;
+		top: 0;
+		left: 128px;
+		width: calc(38vw - 64px);
+		height: 100vh;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+		background-color: $white;
+
+		> li {
+			height: calc(100% / 6);
+
+			+ li {
+				a {
+					&::before {
+						content: '';
+						width: calc(100% - 112px);
+						height: 1px;
+						background-color: rgba($black, 0.2);
+						position: absolute;
+						top: 0;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+			}
+
+			> a {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+				padding-left: 56px;
+				font-family: $secondFont;
+				font-size: 48px;
+				line-height: 48px;
+				letter-spacing: -1.4px;
+				color: rgba($textMainColor, 0.2);
+				position: relative;
+				transition: background-color 0.3s ease, color 0.3s ease;
+				
+				@include hover {
+					background-color: $blue-25;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	&__menu-inner {
+		display: flex;
+		width: calc(62vw - 64px);
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+
+		&.active {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		ul {
+			+ ul {
+				margin-top: 63px;
+			}
+
+			li {
+				&:first-child {
+					font-family: $secondFont;
+					font-size: 16px;
+					line-height: 19px;
+					color: rgba($white, 0.2);
+					margin-bottom: 24px;
+				}
+
+				+ li {
+					margin-bottom: 19px;
+				}
+
+				a {
+					font-size: 25px;
+					line-height: 27px;
+					letter-spacing: -0.5px;
+					color: $white;
+
+					@include hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	&__menu-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: $blue-25;
+		border-left: 1px solid rgba($white, 0.2);
+	}
+
+	&__menu-content-wrapper {
+		padding: 66px 54px 100px;
+
+		&--bottom {
+			padding: 44px 55px 51px;
+			border-top: 1px solid rgba($white, 0.2);
+		}
+	}
+
+	&__present {
+		display: flex;
+		position: relative;
+	}
+
+	&__present-caption {
+		position: absolute;
+		top: -98px;
+		left: 0;
+		font-family: $secondFont;
+		font-size: 16px;
+		line-height: 19px;
+		color: rgba($white, 0.2);
+	}
+
+	&__present-image {
+		max-width: 220px;
+		width: 100%;
+		margin-right: 32px;
+	}
+
+	&__present-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		font-size: 16px;
+		line-height: 23px;
+		letter-spacing: -0.015em;
+		color: rgba($white, 0.2);
+
+		p:last-child {
+			margin-bottom: 8px;
+		}
+
+		a {
+			font-size: 13px;
+			line-height: 15px;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			color: $white;
+			transition: opacity 0.3s ease;
+
+			@include hover {
+				opacity: 0.8;
+			}
+		}
+	}
+
+	&__menu-image {
+		position: relative;
+		height: 100vh;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__request-btn {
+		width: 304px;
+		height: 304px;
+		border-radius: 500px;
+		position: absolute;
+		bottom: 35px;
+		right: 35px;
+
+		@include max(xl) {
+			width: 150px;
+			height: 150px;
+			padding: 12px;
+			text-align: center;
+			right: unset;
+			bottom: unset;
+			top: 20px;
+			left: 20px;
 		}
 	}
 }

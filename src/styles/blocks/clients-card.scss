@@ -4,13 +4,11 @@
 	width: 100%;
 	height: 777px;
 	background-color: rgba($white, 0.1);
-	padding: 68px 104px 74px 54px;
 	position: relative;
 	cursor: pointer;
 
 	@include max(lg) {
 		height: auto;
-		padding: 0;
 	}
 
 	@include hover {
@@ -29,17 +27,20 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		//backdrop-filter: blur(24px);
+		backdrop-filter: blur(24px);
 	}
 
 	&__client {
 		display: flex;
 		justify-content: space-between;
 		height: 100%;
+		padding: 68px 104px 74px 54px;
+		position: relative;
 
 		@include max(lg) {
 			flex-direction: column;
 			justify-content: flex-start;
+			padding: 0;
 		}
 	}
 

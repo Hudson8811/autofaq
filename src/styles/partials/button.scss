@@ -19,13 +19,25 @@
 		line-height: 12px;
 	}
 
+	@include hover {
+		background-color: rgba($blue-27, 0.2);
+	}
+
 	&--green {
 		background-color: $green;
 		color: $white;
+
+		@include hover {
+			background-color: rgba($green, 0.8);
+		}
 	}
 
 	&--blue {
 		background-color: $blue-27;
 		color: $white;
+
+		@include hover {
+			background-color: rgba($blue-27, 0.8);
+		}
 	}
 }

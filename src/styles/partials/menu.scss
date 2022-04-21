@@ -20,6 +20,11 @@
 			line-height: 15px;
 			font-weight: 600;
 			text-transform: uppercase;
+			transition: opacity 0.3s ease;
+
+			@include hover {
+				opacity: 0.8;
+			}
 		}
 	}
 }

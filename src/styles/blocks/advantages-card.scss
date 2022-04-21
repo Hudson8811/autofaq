@@ -73,6 +73,11 @@
 
 	&__more {
 		margin-top: 56px;
+		transition: opacity 0.3s ease;
+
+		@include hover {
+			opacity: 0.8;
+		}
 
 		@include max(lg) {
 			margin-top: 24px;

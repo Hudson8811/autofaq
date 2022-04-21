@@ -54,4 +54,60 @@
 			display: none;
 		}
 	}
+
+	&--theme-white {
+		#{$parent} {
+			&__about {
+				color: rgba($white, 0.5);
+			}
+
+			&__demo {
+				a {
+					background-color: rgba($white, 0.1);
+					color: $white;
+					transition: background-color 0.3s ease;
+
+					@include hover {
+						background-color: rgba($white, 0.3);
+					}
+				}
+			}
+		}
+
+		.menu {
+			li a {
+				color: $white;
+			}
+		}
+	}
+
+	&--fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: auto;
+		background-color: $white;
+		transition: transform 0.5s ease;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid rgba($black, 0.2);
+
+		#{$parent} {
+			&__container {
+				align-items: center;
+			}
+
+			&__about {
+				display: none;
+			}
+
+			&__demo {
+				margin-top: 0;
+
+				a {
+					padding: 13px 42px;
+				}
+			}
+		}
+	}
 }

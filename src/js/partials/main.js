@@ -3,6 +3,8 @@ $(document).ready(function() {
 	var clientsAccordItem = $('.clients-card__client-logo');
 	var servicesThumbs = $('.services__tabs-item');
 	var servicesContents = $('.services__content-item');
+	var textColorChanged = $('.brands__text');
+	var moveToLeftText = $('.clients__title p');
 	var inputRange = document.querySelectorAll('.calculate__calc-item input');
 	var optionsMarquee = {
 		duration: 20000,
@@ -67,7 +69,6 @@ $(document).ready(function() {
 				const newValue = Number((elem.value - elem.min) * 100 / (elem.max - elem.min));
 				const newPosition = 9 - (newValue * 0.2);
 
-				console.log(`calc(${newValue}% + ${newPosition}px)`);
 				elem.previousElementSibling.textContent = elem.value;
 				elem.previousElementSibling.style.left = `calc(${newValue}% + ${newPosition}px)`;
 			});
@@ -109,4 +110,43 @@ $(document).ready(function() {
 			servicesContents.hide().eq($(this).index()).fadeIn(300).css('display', 'flex');
 		});
 	}
+
+	/**
+	 * Смена цвета текста при скролле
+	 */
+	function setTextColor(el) {
+		$(window).scroll(function () {
+			var scroll = $(this).scrollTop();
+			var winH = $(this).innerHeight();
+
+			el.each(function () {
+				var elH = $(this).outerHeight();
+				var elOffset = $(this).offset().top;
+				var centerScroll = (winH - elH) / 2 + scroll;
+
+				if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+					el.removeClass('white-text');
+					$(this).addClass('white-text');
+				}
+			});
+		});
+	}
+
+	setTextColor(textColorChanged);
+	setTextColor($('.calculate__title'));
+
+	/**
+	 * Движение текста влево при появлении блока
+	 */
+	$(window).scroll(function () {
+		var scroll = $(this).scrollTop();
+		var winH = $(this).innerHeight();
+		var elH = moveToLeftText.outerHeight();
+		var elOffset = moveToLeftText.offset().top;
+		var centerScroll = (winH - elH) / 2 + scroll;
+
+		if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+			moveToLeftText.css('transform', 'translateX(0)')
+		}
+	})
 })

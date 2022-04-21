@@ -60,10 +60,6 @@ textarea {
 	}
 }
 
-main {
-	overflow: hidden;
-}
-
 .container {
 	max-width: 100%;
 	width: 1710px;
@@ -73,6 +69,10 @@ main {
 	@include max(lg) {
 		padding: 0 18px;
 	}
+}
+
+.body-scroll-lock {
+	overflow: hidden;
 }
 
 .topic {
@@ -91,6 +91,10 @@ main {
 	&--dark {
 		color: $textMainColor;
 	}
+}
+
+.white-text {
+	color: $white !important;
 }
 
 /* Select2 custom */
