@@ -5,6 +5,7 @@
 	margin-top: -191px;
 	position: relative;
 	padding: 216px 0 351px;
+	overflow: hidden;
 
 	@include max(lg) {
 		margin-top: 0;
