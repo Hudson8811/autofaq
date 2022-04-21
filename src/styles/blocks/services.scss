@@ -134,6 +134,12 @@
 			text-align: left;
 			padding-right: 50px;
 		}
+
+		br {
+			@include max(lg) {
+				display: none;
+			}
+		}
 	}
 
 	&__btn {
