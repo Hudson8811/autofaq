@@ -94,6 +94,8 @@ $(document).ready(function() {
 		const currentData = btn.closest('.nlu__slider').next().find('td[data-label="' + btn.text() + '"]');
 
 		data.hide();
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
 
 		currentData.each(function () {
 			$(this).show();

@@ -1,5 +1,6 @@
 .about-card {
 	$parent: &;
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: column;

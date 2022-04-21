@@ -2,13 +2,16 @@
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-	min-height: 1108px;
 	padding: 248px 0 37px;
 	position: relative;
 
+	@media (max-width: 1200px) and (max-height: 740px) {
+		min-height: auto;
+	}
+
 	@include max(lg) {
 		padding: 220px 0 37px;
-		min-height: auto;
+		height: auto;
 	}
 
 	@include max(sm) {
@@ -59,7 +62,6 @@
 		line-height: 500px;
 		letter-spacing: -23.1363px;
 		text-align: center;
-		//padding-right: 50px;
 		position: relative;
 		white-space: pre-line;
 
@@ -67,6 +69,16 @@
 			font-size: vw(460);
 			line-height: vw(500);
 			letter-spacing: vw(-23.1363);
+		}
+
+		@media (min-width: 1280px) and (max-height: 1060px) {
+			font-size: 300px;
+			line-height: 320px;
+		}
+
+		@media (min-width: 1280px) and (max-height: 920px) {
+			font-size: 250px;
+			line-height: 270px;
 		}
 
 		@include max(lg) {
@@ -136,6 +148,10 @@
 		padding-right: 216px;
 		position: relative;
 		z-index: 2;
+
+		@media (min-width: 1280px) and (max-height: 920px) {
+			margin-top: 50px;
+		}
 
 		@include max(lg) {
 			margin-top: 60px;

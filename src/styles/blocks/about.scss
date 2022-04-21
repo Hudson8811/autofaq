@@ -2,7 +2,6 @@
 	display: flex;
 	position: relative;
 	z-index: 100;
-	overflow: hidden;
 
 	@include max(lg) {
 		flex-direction: column;
