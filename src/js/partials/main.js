@@ -21,6 +21,15 @@ $(document).ready(function() {
 		minimumResultsForSearch: Infinity
 	});
 
+	$('.cases-single__marquee').marquee({
+		duration: 20000,
+		delayBeforeStart: 0,
+		duplicated: true,
+		gap: 200,
+		direction: 'right',
+		startVisible: true
+	});
+
 	$('.js-marquee-1').marquee({
 		...optionsMarquee,
 		direction: 'left'
