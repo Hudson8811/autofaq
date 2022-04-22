@@ -5,6 +5,7 @@
 	height: 892px;
 	padding: 76px 94px 76px 56px;
 	background-color: $white;
+	position: relative;
 
 	@include max(xxl) {
 		height: auto;

@@ -3,9 +3,11 @@
 
 	&__tabs {
 		border-right: 1px solid rgba($black, 0.2);
+		height: 100vh;
 
 		@include max(lg) {
 			width: 100%;
+			height: auto;
 			border-right: 0;
 		}
 	}

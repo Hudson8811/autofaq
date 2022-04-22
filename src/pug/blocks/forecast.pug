@@ -1,15 +1,19 @@
 section.forecast
 	.forecast__wrapper
-		span.forecast__marquee Get in touch
+		span.forecast__marquee.forecast__marquee--dark Get in touch
 		+button('оставить заявку', 'button--green forecast__request', '#')
 		.forecast__col
 			.topic.forecast__topic прогноз
+			.forecast__diag
+			span.forecast__marquee Get in touch
 		.forecast__col
 			.forecast__text Рост удовлетворённости клиентов всего на 10-20% может дать рост годовой выручки до 30%
+			.forecast__diag
 		.forecast__col
 			.forecast__percent
 				p 30%
 				p Рост выручки <br> за год
+			.forecast__diag
 	.forecast__wrapper.forecast__wrapper--mobile
 		.topic.forecast__topic прогноз
 		.forecast__text Рост удовлетворённости клиентов всего на 10-20% может дать рост годовой выручки до 30%

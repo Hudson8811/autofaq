@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	var benefitsAccordionItem = $('.benefits__accordion-item');
 	var clientsAccordItem = $('.clients-card__client-logo');
 	var servicesThumbs = $('.services__tabs-item');
 	var servicesContents = $('.services__content-item');
@@ -15,6 +14,10 @@ $(document).ready(function() {
 	}
 
 	$('.lang-switcher select').select2({
+		minimumResultsForSearch: Infinity
+	});
+
+	$('.js-calculate-select').select2({
 		minimumResultsForSearch: Infinity
 	});
 
@@ -36,20 +39,6 @@ $(document).ready(function() {
 		direction: 'right',
 		startVisible: true
 	});
-
-	/**
-	 * Аккордеон для блока Benefits
-	 */
-	if (window.matchMedia('(min-width: 1280px)').matches) {
-		benefitsAccordionItem.click(function () {
-			if (!$(this).hasClass('active')) {
-				benefitsAccordionItem.removeClass('active');
-				benefitsAccordionItem.find('.benefits__accordion-wrapper p:last-child').slideUp(300);
-				$(this).addClass('active');
-				$(this).find('.benefits__accordion-wrapper p:last-child').slideDown(300);
-			}
-		});
-	}
 
 	/**
 	 * Аккордеон для блока Clients
@@ -114,6 +103,104 @@ $(document).ready(function() {
 	}
 
 	/**
+	 * Смена табов при скролле
+	 * TODO: Убрать мелькания при скролле
+	 */
+	if (window.matchMedia('(min-width: 1280px)').matches) {
+		function changeTabs(currentIndex) {
+			let curThumb = servicesThumbs[currentIndex];
+
+			servicesThumbs.removeClass('active');
+			$(curThumb).addClass('active');
+			servicesContents.hide().eq(currentIndex).fadeIn(300).css('display', 'flex');
+		}
+
+		var tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.services',
+				id: "services",
+				start: 'top top',
+				end: 'bottom top',
+				//markers: true,
+				scrub: true,
+				pin: true,
+				onUpdate: (self) => {
+					if (self.progress <= 0.25) {
+						changeTabs(0);
+					} else if (self.progress > 0.25 && self.progress <= 0.50) {
+						changeTabs(1);
+					} else if (self.progress > 0.50 && self.progress <= 0.75) {
+						changeTabs(2);
+					} else if (self.progress > 0.75) {
+						changeTabs(3);
+					}
+				}
+			}
+		});
+	}
+
+	/**
+	 * Параллакс блоков
+	 */
+	if (window.matchMedia('(min-width: 1280px)').matches) {
+		var tl2 = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.advantages',
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+				pin: true
+			}
+		});
+
+		var advCards = gsap.utils.toArray('.advantages-card');
+		advCards.forEach((elem, index) => {
+			switch (index) {
+				case 0:
+					tl2.to(elem, 1, {top: 0, ease: Linear.easeNone}, 2);
+					break;
+				case 1:
+					tl2.fromTo(elem, 1, {top: -178}, {top: 0, ease: Linear.easeNone}, 0);
+					break;
+				case 2:
+					tl2.fromTo(elem, 1, {top: -340}, {top: 0, ease: Linear.easeNone}, 0.7);
+					break;
+			}
+		});
+	}
+
+	/**
+	 * Анимация роста столбцов при скролле
+	 */
+	if (window.matchMedia('(min-width: 1280px)').matches) {
+		var diagForecast = gsap.utils.toArray('.forecast__diag');
+
+		$(window).scroll(function () {
+			var scroll = $(this).scrollTop();
+			var winH = $(this).innerHeight();
+			var elH = $('.forecast').outerHeight();
+			var elOffset = $('.forecast').offset().top;
+			var centerScroll = (winH - elH) / 2 + scroll;
+
+			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+				diagForecast.forEach((elem, index) => {
+					switch (index) {
+						case 0:
+							gsap.to(elem, 1, {height: '56%', ease: Linear.easeNone}, 0);
+							break;
+						case 1:
+							gsap.to(elem, 1, {height: '70%', ease: Linear.easeNone}, 0);
+							break;
+						case 2:
+							gsap.to(elem, 1, {height: '82%', ease: Linear.easeNone}, 0.7);
+							break;
+					}
+				});
+			}
+		});
+	}
+
+	/**
 	 * Смена цвета текста при скролле
 	 */
 	function setTextColor(el) {
@@ -150,5 +237,5 @@ $(document).ready(function() {
 		if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
 			moveToLeftText.css('transform', 'translateX(0)')
 		}
-	})
+	});
 })
