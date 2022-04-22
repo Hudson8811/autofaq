@@ -347,4 +347,13 @@
 			}
 		}
 	}
+
+	&--simple {
+		#{$parent} {
+			&__middle {
+				align-items: flex-end;
+				padding-bottom: 43px;
+			}
+		}
+	}
 }

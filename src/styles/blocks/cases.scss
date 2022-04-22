@@ -2,9 +2,14 @@
 	background: linear-gradient(261.18deg, #255EC1 -11.8%, #47D6AA 150.2%);
 	padding: 228px 0 267px;
 	position: relative;
+	overflow: hidden;
 
 	@include max(lg) {
-		padding: 190px 0 150px;
+		padding: 190px 0 120px;
+	}
+
+	@include max(sm) {
+		padding: 190px 0 70px;
 	}
 
 	&::before {
@@ -47,6 +52,20 @@
 		color: rgba($white, 0.37);
 		margin-top: 137px;
 		margin-left: auto;
+		margin-right: 71px;
+
+		@include max(lg) {
+			margin-left: 0;
+			margin-top: 80px;
+			font-size: 38px;
+			line-height: 42px;
+		}
+
+		@include max(sm) {
+			margin-top: 30px;
+			font-size: 24px;
+			line-height: 28px;
+		}
 
 		span {
 			color: $white;
@@ -55,11 +74,33 @@
 
 	&__grid {
 		display: flex;
-		margin-top: 104px;
+		margin-top: 60px;
 		position: relative;
+
+		@include max(lg) {
+			flex-wrap: wrap;
+		}
 	}
 
 	&__col {
 		width: 50%;
+
+		@include max(lg) {
+			width: 100%;
+		}
+	}
+
+	.clients-card {
+		&__icon {
+			svg {
+				fill: $blue-26;
+			}
+		}
+
+		&__inner {
+			@include max(lg) {
+				margin-bottom: -108px;
+			}
+		}
 	}
 }
