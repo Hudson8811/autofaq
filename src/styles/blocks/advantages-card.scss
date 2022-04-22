@@ -6,6 +6,7 @@
 	padding: 76px 94px 76px 56px;
 	background-color: $white;
 	position: relative;
+	z-index: 1;
 
 	@include max(xxl) {
 		height: auto;

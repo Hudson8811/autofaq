@@ -8,6 +8,22 @@
 		background: linear-gradient(90deg, #255EC1 14.74%, #47D6AA 99.49%);
 		overflow: hidden;
 
+		&::before {
+			content: '';
+			display: block;
+			width: 17px;
+			height: 17px;
+			border-radius: 50%;
+			background-color: $white;
+			position: absolute;
+			top: 62px;
+			left: calc(66.6666% - 8.5px);
+
+			@include max(lg) {
+				display: none;
+			}
+		}
+
 		@include max(lg) {
 			display: none;
 		}
@@ -42,6 +58,7 @@
 		&:first-of-type {
 			padding-left: 71px;
 			overflow: hidden;
+			z-index: 2;
 
 			.forecast__diag {
 				height: 0;
@@ -51,6 +68,8 @@
 
 		&:nth-of-type(2) {
 			padding-left: 40px;
+			overflow: hidden;
+			z-index: 1;
 
 			.forecast__diag {
 				height: 0;
@@ -61,11 +80,13 @@
 		&:nth-of-type(3) {
 			padding-left: 46px;
 			padding-right: 56px;
+			overflow: hidden;
 
 			.forecast__diag {
 				height: 0;
 				background: rgba($white, 0.1);
 				backdrop-filter: blur(24px);
+				z-index: 1;
 			}
 		}
 	}
@@ -170,28 +191,11 @@
 				letter-spacing: -8.5px;
 				color: $white;
 				margin-right: 15px;
-				position: relative;
 
 				@include max(lg) {
 					font-size: 45px;
 					line-height: 55px;
 					letter-spacing: -2px;
-				}
-
-				&::before {
-					content: '';
-					display: block;
-					width: 17px;
-					height: 17px;
-					border-radius: 50%;
-					background-color: $white;
-					position: absolute;
-					top: 12px;
-					left: -54px;
-
-					@include max(lg) {
-						display: none;
-					}
 				}
 			}
 
@@ -231,7 +235,7 @@
 		height: 356px;
 		border-radius: 500px;
 		position: absolute;
-		z-index: 1;
+		z-index: 10;
 		left: calc(33.3333% - 356px / 2);
 		bottom: 15%;
 

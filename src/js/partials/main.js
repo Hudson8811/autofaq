@@ -103,17 +103,16 @@ $(document).ready(function() {
 	/**
 	 * Табы
 	 */
-	if (window.matchMedia('(min-width: 1280px)').matches) {
+	/*if (window.matchMedia('(min-width: 1280px)').matches) {
 		servicesThumbs.on('mouseenter', function () {
 			servicesThumbs.removeClass('active');
 			$(this).addClass('active');
 			servicesContents.hide().eq($(this).index()).fadeIn(300).css('display', 'flex');
 		});
-	}
+	}*/
 
 	/**
 	 * Смена табов при скролле
-	 * TODO: Убрать мелькания при скролле
 	 */
 	if (window.matchMedia('(min-width: 1280px)').matches) {
 		function changeTabs(currentIndex) {
@@ -121,16 +120,14 @@ $(document).ready(function() {
 
 			servicesThumbs.removeClass('active');
 			$(curThumb).addClass('active');
-			servicesContents.hide().eq(currentIndex).fadeIn(300).css('display', 'flex');
+			servicesContents.hide().eq(currentIndex).show().css('display', 'flex');
 		}
 
 		var tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.services',
-				id: "services",
 				start: 'top top',
-				end: 'bottom top',
-				//markers: true,
+				end: '+=250%',
 				scrub: true,
 				pin: true,
 				onUpdate: (self) => {
@@ -149,31 +146,42 @@ $(document).ready(function() {
 	}
 
 	/**
-	 * Параллакс блоков
+	 * Параллакс блока
 	 */
 	if (window.matchMedia('(min-width: 1280px)').matches) {
-		var tl2 = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.advantages',
-				start: 'top top',
-				end: 'bottom top',
+		const tl2 = gsap.timeline({
+			scrollTrigger:{
+				trigger: '.about-card--blue',
 				scrub: true,
-				pin: true
+				pin: true,
+				start: 'top top',
+				end: '+=20%'
 			}
 		});
+	}
 
-		var advCards = gsap.utils.toArray('.advantages-card');
-		advCards.forEach((elem, index) => {
-			switch (index) {
-				case 0:
-					tl2.to(elem, 1, {top: 0, ease: Linear.easeNone}, 2);
-					break;
-				case 1:
-					tl2.fromTo(elem, 1, {top: -178}, {top: 0, ease: Linear.easeNone}, 0);
-					break;
-				case 2:
-					tl2.fromTo(elem, 1, {top: -340}, {top: 0, ease: Linear.easeNone}, 0.7);
-					break;
+	/**
+	 * Смещение блоков сверху вниз
+	 */
+	if (window.matchMedia('(min-width: 1280px)').matches) {
+		$(window).scroll(function () {
+			var scroll = $(this).scrollTop();
+			var winH = $(this).innerHeight();
+			var elH = $('.advantages').outerHeight();
+			var elOffset = $('.advantages').offset().top - 500;
+			var centerScroll = (winH - elH) / 2 + scroll;
+
+			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+				$('.advantages-card').each(function (index, elem) {
+					switch (index) {
+						case 1:
+							TweenMax.to(elem, 1, {y: 178, ease: Linear.easeNone});
+							break;
+						case 2:
+							TweenMax.to(elem, 1, {y: 340, ease: Linear.easeNone}, 0.6);
+							break;
+					}
+				});
 			}
 		});
 	}
@@ -188,20 +196,24 @@ $(document).ready(function() {
 			var scroll = $(this).scrollTop();
 			var winH = $(this).innerHeight();
 			var elH = $('.forecast').outerHeight();
-			var elOffset = $('.forecast').offset().top;
+			var elOffset = $('.forecast').offset().top - 900;
 			var centerScroll = (winH - elH) / 2 + scroll;
 
 			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
 				diagForecast.forEach((elem, index) => {
 					switch (index) {
 						case 0:
-							gsap.to(elem, 1, {height: '56%', ease: Linear.easeNone}, 0);
+							setTimeout(function () {
+								TweenMax.to(elem, 1, {height: '56%', ease: Linear.easeNone}, 0);
+							}, 1300);
 							break;
 						case 1:
-							gsap.to(elem, 1, {height: '70%', ease: Linear.easeNone}, 0);
+							setTimeout(function () {
+								TweenMax.to(elem, 1, {height: '70%', ease: Linear.easeNone}, 0);
+							}, 700);
 							break;
 						case 2:
-							gsap.to(elem, 1, {height: '82%', ease: Linear.easeNone}, 0.7);
+							TweenMax.to(elem, 1, {height: '82%', ease: Linear.easeNone}, 0);
 							break;
 					}
 				});
@@ -246,5 +258,16 @@ $(document).ready(function() {
 		if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
 			moveToLeftText.css('transform', 'translateX(0)')
 		}
+	});
+
+	/**
+	 * Разноцветная бегущая строка
+	 */
+	$('.forecast__marquee--white-1').css('margin-left', -$('.forecast__col').outerWidth());
+	$('.forecast__marquee--white-2').css('margin-left', -$('.forecast__col').outerWidth() * 2);
+
+	$(window).on('resize', () => {
+		$('.forecast__marquee--white-1').css('margin-left', -$('.forecast__col').outerWidth());
+		$('.forecast__marquee--white-2').css('margin-left', -$('.forecast__col').outerWidth() * 2);
 	});
 })
