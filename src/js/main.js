@@ -12,3 +12,4 @@
 //= ./partials/swiper-init.js
 //= ./partials/swiper-mobile.js
 //= ./partials/auto-accordion.js
+//= ./partials/calculate.js

@@ -1,5 +1,5 @@
 mixin about-card(title, topic, text, img, className)
-	.about-card(class= className)
+	.about-card(class= className)&attributes(attributes)
 		.about-card__top
 			.about-card__title!= title
 			.about-card__topic!= topic

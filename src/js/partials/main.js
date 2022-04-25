@@ -118,9 +118,11 @@ $(document).ready(function() {
 		function changeTabs(currentIndex) {
 			let curThumb = servicesThumbs[currentIndex];
 
-			servicesThumbs.removeClass('active');
-			$(curThumb).addClass('active');
-			servicesContents.hide().eq(currentIndex).show().css('display', 'flex');
+			if (!$(curThumb).hasClass('active')) {
+				servicesThumbs.removeClass('active');
+				$(curThumb).addClass('active');
+				servicesContents.hide().eq(currentIndex).fadeIn(300).css('display', 'flex');
+			}
 		}
 
 		var tl = gsap.timeline({
@@ -149,14 +151,24 @@ $(document).ready(function() {
 	 * Параллакс блока
 	 */
 	if (window.matchMedia('(min-width: 1280px)').matches) {
-		const tl2 = gsap.timeline({
-			scrollTrigger:{
-				trigger: '.about-card--blue',
-				scrub: true,
-				pin: true,
-				start: 'top top',
-				end: '+=20%'
-			}
+		$(window).on("load scroll", function() {
+			var parallaxElement = $('.about-card--blue');
+			var parallaxQuantity = parallaxElement.length;
+
+			window.requestAnimationFrame(function() {
+				for (var i = 0; i < parallaxQuantity; i++) {
+					var currentElement = parallaxElement.eq(i),
+						windowTop = $(window).scrollTop(),
+						elementTop = currentElement.offset().top,
+						elementHeight = currentElement.height(),
+						viewPortHeight = window.innerHeight * 0.5 - elementHeight * 0.5,
+						scrolled = windowTop - elementTop + viewPortHeight;
+
+					currentElement.css({
+						transform: 'translate3d(0,' + scrolled * -0.45 + 'px, 0)'
+					});
+				}
+			});
 		});
 	}
 

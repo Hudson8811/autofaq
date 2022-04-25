@@ -1,10 +1,23 @@
 .footer {
-	background: linear-gradient(59.73deg, #255EC1 14.74%, #47D6AA 99.49%);
+	background: linear-gradient(90deg, #255EC1 20%, #47D6AA 99.49%);
 	padding-top: 43px;
 	padding-bottom: 57px;
+	border-top: 1px solid rgba($white, 0.3);
+	position: relative;
 
 	@include max(lg) {
 		padding-top: 14px;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		background: rgba($white, 0.1);
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 	}
 
 	&__container {
