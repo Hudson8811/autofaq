@@ -122,6 +122,14 @@
 		}
 
 		#{$parent} {
+			&__title {
+				padding-left: 20px;
+
+				@include max(lg) {
+					padding-left: 0;
+				}
+			}
+
 			&__text {
 				max-width: 205px;
 				font-family: $secondFont;

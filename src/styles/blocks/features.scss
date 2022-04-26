@@ -42,7 +42,6 @@
 
 	&__slide {
 		display: flex;
-		justify-content: space-between;
 		cursor: pointer;
 
 		@include max(lg) {
@@ -106,7 +105,7 @@
 		line-height: 52px;
 		letter-spacing: -1.4px;
 		color: rgba($white, 0.23);
-		margin-right: 112px;
+		margin-right: 72px;
 
 		@include max(lg) {
 			font-size: 24px;
@@ -193,6 +192,7 @@
 		max-width: 370px;
 		padding-top: 83px;
 		margin-right: -40px;
+		margin-left: auto;
 		position: relative;
 
 		@include max(lg) {
@@ -201,6 +201,7 @@
 			padding-top: 35px;
 			margin-bottom: 130px;
 			left: 50%;
+			margin-left: 0;
 		}
 
 		img {
@@ -271,8 +272,11 @@
 	}
 
 	&__mockup {
+		margin-left: auto;
+
 		@include max(lg) {
 			order: -1;
+			margin-left: 0;
 		}
 
 		img {

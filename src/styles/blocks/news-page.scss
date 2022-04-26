@@ -51,15 +51,35 @@
 	&__item {
 		width: 50%;
 		height: 800px;
+		padding: 43px 57px 67px;
 
 		@include max(lg) {
 			height: 400px;
+			padding: 6px 14px 24px;
 		}
 
 		@include max(sm) {
 			width: 100%;
 			height: 272px;
 			margin-bottom: 20px;
+		}
+
+		.news-card {
+			&__top {
+				padding-bottom: 46px;
+
+				@include max(lg) {
+					padding-bottom: 7px;
+				}
+			}
+
+			&__day {
+				padding-top: 15px;
+
+				@include max(lg) {
+					padding-top: 0;
+				}
+			}
 		}
 	}
 }
