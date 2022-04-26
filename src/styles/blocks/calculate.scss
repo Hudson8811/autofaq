@@ -249,6 +249,17 @@
 				letter-spacing: -0.9px;
 				bottom: 15px;
 			}
+
+			&--small {
+				font-size: 30px;
+				line-height: 32px;
+				white-space: nowrap;
+
+				@include max(lg) {
+					font-size: 20px;
+					line-height: 20px;
+				}
+			}
 		}
 
 		input[type="range"] {

@@ -11,21 +11,21 @@ section.calculate
 						option(value='Клиентская поддержка 2') Клиентская поддержка 2
 				.calculate__calc-item
 					span Сотрудников на поддержке
-					.range-value 50
-					input(type='range', min='0' max='50' value='50' step='1')
+					.range-value 100
+					input(id='range-1', type='range', min='0', max='100', value='100', step='1')
 				.calculate__calc-item
 					span Обращений в месяц
-					.range-value 50
-					input(type='range', min='0' max='50' value='50' step='1')
+					.range-value.range-value--small выше 100 тыс.
+					input(id='range-2', type='range', min='10000', max='110000', value='110000', step='10000')
 			+button('оставить заявку', 'button--green calculate__request', '#')
 		.calculate__result
 			.calculate__result-item
-				p <span class="result-1">20</span>+
+				p <span id="result-1">60</span>+
 				p Миллионово экономии в год <br> на ФОТ
 			.calculate__result-item
-				p x<span class="result-2">3</span>
+				p x3
 				p Рост эффективности HelpDesk
 			.calculate__result-item
-				p <span class="result-3">337</span>%
+				p <span id="result-2">1000</span>%
 				p ROI за год
 		+button('оставить заявку', 'button--green calculate__request calculate__request--mobile', '#')

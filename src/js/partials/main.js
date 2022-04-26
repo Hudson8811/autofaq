@@ -68,7 +68,12 @@ $(document).ready(function() {
 				const newPosition = 9 - (newValue * 0.2);
 
 				elem.previousElementSibling.textContent = elem.value;
-				elem.previousElementSibling.style.left = `calc(${newValue}% + ${newPosition}px)`;
+
+				if (elem.id === 'range-2' && elem.value < 40000) {
+					elem.previousElementSibling.style.left = `calc(${newValue}% + ${newPosition}px + 40px)`;
+				} else {
+					elem.previousElementSibling.style.left = `calc(${newValue}% + ${newPosition}px)`;
+				}
 			});
 		});
 	}
