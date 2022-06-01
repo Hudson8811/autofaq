@@ -73,6 +73,15 @@ textarea {
 	@include max(lg) {
 		padding: 0 18px;
 	}
+
+	&--full {
+		width: 100%;
+		padding: 0 48px 0 56px;
+
+		@include max(xl) {
+			padding: 0 18px;
+		}
+	}
 }
 
 .body-scroll-lock {

@@ -7,7 +7,7 @@
 	&__container {
 		display: flex;
 		align-items: flex-end;
-		min-height: 100vh;
+		min-height: 794px;
 		padding-top: 228px;
 		padding-bottom: 25px;
 
@@ -64,7 +64,23 @@
 			margin-bottom: 20px;
 		}
 
+		&:nth-child(even) {
+			border-left: 1px solid rgba($black-31, 0.2);
+
+			.news-card__bg::before {
+				border-left: 1px solid rgba($black-31, 0.2);
+			}
+		}
+
 		.news-card {
+			&__bg {
+				border-bottom: 1px solid rgba($black-31, 0.2);
+			}
+
+			&__bg::before {
+				border-bottom: 2px solid rgba($black-31, 0.2);
+			}
+
 			&__top {
 				padding-bottom: 46px;
 

@@ -20,6 +20,7 @@
 	&__container {
 		display: flex;
 		justify-content: space-between;
+		margin: 0 48px 0 56px;
 	}
 
 	&__about {
@@ -42,7 +43,7 @@
 	}
 
 	&__demo {
-		margin-top: -16px;
+		margin-top: -10px;
 		margin-right: -10px;
 		margin-left: 126px;
 

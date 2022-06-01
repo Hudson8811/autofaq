@@ -1,4 +1,6 @@
 .cases {
+	$parent: &;
+
 	background: linear-gradient(261.18deg, #255EC1 -11.8%, #47D6AA 150.2%);
 	padding: 228px 0 267px;
 	position: relative;
@@ -87,6 +89,12 @@
 
 		@include max(lg) {
 			width: 100%;
+		}
+
+		&:last-child {
+			#{$parent}__item {
+				border-left: 1px solid rgba($white, 0.3);
+			}
 		}
 	}
 

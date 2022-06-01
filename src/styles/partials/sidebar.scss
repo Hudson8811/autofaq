@@ -142,14 +142,16 @@
 			+ li {
 				a {
 					&::before {
-						content: '';
-						width: calc(100% - 112px);
-						height: 1px;
-						background-color: rgba($black, 0.2);
-						position: absolute;
-						top: 0;
-						left: 50%;
-						transform: translateX(-50%);
+						@include max(lg) {
+							content: '';
+							width: calc(100% - 112px);
+							height: 1px;
+							background-color: rgba($black, 0.2);
+							position: absolute;
+							top: 0;
+							left: 50%;
+							transform: translateX(-50%);
+						}
 					}
 				}
 			}
@@ -307,6 +309,7 @@
 	&__menu-image {
 		position: relative;
 		height: 100vh;
+		background-color: $blue-25;
 
 		img {
 			width: 100%;

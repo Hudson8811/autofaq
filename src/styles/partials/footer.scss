@@ -23,12 +23,9 @@
 	&__container {
 		display: flex;
 		flex-wrap: wrap;
-		width: 1750px;
-		padding-right: 77px;
 
 		@include max(xl) {
 			flex-direction: column;
-			padding-right: 18px;
 		}
 
 		&--mt {
