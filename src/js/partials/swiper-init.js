@@ -1,10 +1,12 @@
 $(window).on('load', function () {
-	//let consultSlider = document.querySelectorAll('.__js_slider-consult');
 	let featuresSlider = document.querySelectorAll('.__js_slider-features');
 	let newsSlider = document.querySelectorAll('.__js_slider-news');
 	let publishSlider = document.querySelectorAll('.__js_slider-publish');
+	let aboutSlider = document.querySelectorAll('.__js_slider-about');
 	const current = document.querySelector('.features__counter .current');
 	const all = document.querySelector('.features__counter .all');
+	const current2 = document.querySelector('.about-page__counter .current');
+	const all2 = document.querySelector('.about-page__counter .all');
 
 	const options = {
 		speed: 500,
@@ -103,25 +105,23 @@ $(window).on('load', function () {
 		});
 	}
 
-	/*if (consultSlider.length > 0) {
-		consultSlider.forEach(elem => {
-			new Swiper(elem, {
+	if (aboutSlider.length > 0) {
+		aboutSlider.forEach(elem => {
+			const slider = new Swiper(elem, {
 				...options,
-				spaceBetween: 17,
-				slidesPerView: 1.48,
-				loop: true,
+				slidesPerView: 1,
+				spaceBetween: 0,
 				navigation: {
-					nextEl: '.consult__nav .slider-arrows__right',
-					prevEl: '.consult__nav .slider-arrows__left',
+					nextEl: '.about-page__nav .slider-arrows__right',
+					prevEl: '.about-page__nav .slider-arrows__left',
 				},
-				breakpoints: {
-					1200: {
-						spaceBetween: 33,
-						slidesPerView: 4.84,
-						centeredSlides: true
+				on: {
+					slideChange: function () {
+						current2.textContent = String(slider.realIndex + 1).padStart(2, '0');
 					}
 				}
 			});
+			all2.textContent = String(slider.slides.length).padStart(2, '0');
 		});
-	}*/
+	}
 })

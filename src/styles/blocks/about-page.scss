@@ -1,0 +1,239 @@
+.about-page {
+	$parent: &;
+
+	background: linear-gradient(90deg, #255EC1 -11.8%, #47D6AA 150.2%);
+	padding-top: 240px;
+	position: relative;
+	overflow: hidden;
+
+	@include max(lg) {
+		padding-top: 190px;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		width: 1080px;
+		height: 1080px;
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1080' height='1080' viewBox='0 0 1080 1080' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='540' cy='540' r='539.5' stroke='url(%23paint0_linear_253_18367)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear_253_18367' x1='777' y1='1.17873e-05' x2='274.5' y2='740.5' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 300px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&__title {
+		font-family: $secondFont;
+		font-size: 263.653px;
+		line-height: 229px;
+		letter-spacing: -13.7319px;
+		color: $white;
+		margin-left: -12px;
+
+		@include max(xl) {
+			font-size: 200px;
+			line-height: 200px;
+			letter-spacing: -12px;
+		}
+
+		@include max(md) {
+			font-size: 70px;
+			line-height: 90px;
+			letter-spacing: -3px;
+		}
+
+		@include max(sm) {
+			font-size: 48px;
+			line-height: 52px;
+			letter-spacing: 0;
+		}
+
+		span {
+			color: rgba($white, 0.2);
+		}
+	}
+
+	&__slider {
+		margin-top: 125px;
+
+		@include max(lg) {
+			margin-top: 80px;
+		}
+
+		@include max(sm) {
+			margin-top: 40px;
+		}
+	}
+
+	&__slide {
+		cursor: default;
+	}
+
+	&__block {
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid rgba($white, 0.2);
+		margin-top: 23px;
+		padding: 35px 0 127px;
+
+		@include max(lg) {
+			flex-direction: column;
+			justify-content: flex-start;
+			padding: 35px 0;
+		}
+
+		p {
+			&:first-child {
+				width: 30%;
+				font-size: 48px;
+				line-height: 48px;
+				letter-spacing: -1.4px;
+				color: $white;
+
+				@include max(xl) {
+					width: 48%;
+				}
+
+				@include max(lg) {
+					width: 100%;
+				}
+
+				@include max(md) {
+					font-size: 38px;
+					line-height: 42px;
+				}
+
+				@include max(sm) {
+					font-size: 30px;
+					line-height: 36px;
+				}
+
+				span {
+					color: rgba($white, 0.2);
+				}
+			}
+
+			&:last-child {
+				width: 50%;
+				font-size: 25px;
+				line-height: 36px;
+				color: rgba($white, 0.5);
+
+				@include max(lg) {
+					width: 100%;
+					margin-top: 20px;
+				}
+
+				@include max(md) {
+					font-size: 20px;
+					line-height: 26px;
+				}
+
+				@include max(sm) {
+					font-size: 16px;
+					line-height: 22px;
+				}
+			}
+		}
+
+		&--full {
+			padding: 52px 0 127px;
+
+			@include max(lg) {
+				padding: 35px 0;
+			}
+
+			p {
+				&:first-child {
+					width: 60%;
+
+					@include max(xl) {
+						width: 100%;
+					}
+				}
+
+				&:last-child {
+					width: 0;
+				}
+			}
+		}
+	}
+
+	&__nav-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 38px;
+
+		@include max(sm) {
+			margin-top: 10px;
+		}
+	}
+
+	&__counter {
+		display: flex;
+		align-items: center;
+		font-family: $secondFont;
+		font-size: 16px;
+		line-height: 19px;
+		color: $white;
+
+		@include max(lg) {
+			display: none;
+		}
+
+		span.all {
+			display: flex;
+			align-items: center;
+			color: rgba($white, 0.42);
+
+			&::before {
+				content: '';
+				display: block;
+				width: 92px;
+				height: 1px;
+				background-color: rgba($white, 0.3);
+				margin: 0 18px;
+			}
+		}
+	}
+
+	&__grid {
+		display: flex;
+		margin-top: 60px;
+		position: relative;
+
+		@include max(lg) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__col {
+		width: 50%;
+
+		@include max(lg) {
+			width: 100%;
+		}
+
+		&:last-child {
+			#{$parent}__item {
+				border-left: 1px solid rgba($white, 0.3);
+			}
+		}
+	}
+
+	.clients-card {
+		&__icon {
+			svg {
+				fill: $blue-26;
+			}
+		}
+
+		&__inner {
+			@include max(lg) {
+				margin-bottom: -108px;
+			}
+		}
+	}
+}
