@@ -54,7 +54,7 @@
 		}
 	}
 
-	&__slider {
+	&__content {
 		margin-top: 125px;
 
 		@include max(lg) {
@@ -180,7 +180,7 @@
 		color: $white;
 
 		@include max(lg) {
-			display: none;
+			//display: none;
 		}
 
 		span.all {
@@ -199,14 +199,8 @@
 		}
 	}
 
-	&__grid {
-		display: flex;
+	&__slider {
 		margin-top: 60px;
-		position: relative;
-
-		@include max(lg) {
-			flex-wrap: wrap;
-		}
 	}
 
 	&__col {

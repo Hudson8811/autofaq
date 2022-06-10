@@ -115,13 +115,24 @@ $(window).on('load', function () {
 					nextEl: '.about-page__nav .slider-arrows__right',
 					prevEl: '.about-page__nav .slider-arrows__left',
 				},
+				breakpoints: {
+					768: {
+						slidesPerView: 2
+					},
+					1290: {
+						slidesPerView: 1
+					},
+					1500: {
+						slidesPerView: 2
+					}
+				},
 				on: {
 					slideChange: function () {
 						current2.textContent = String(slider.realIndex + 1).padStart(2, '0');
 					}
 				}
 			});
-			all2.textContent = String(slider.slides.length).padStart(2, '0');
+			all2.textContent = String(slider.slides.length - 1).padStart(2, '0');
 		});
 	}
 })
