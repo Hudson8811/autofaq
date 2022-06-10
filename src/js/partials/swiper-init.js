@@ -116,13 +116,7 @@ $(window).on('load', function () {
 					prevEl: '.about-page__nav .slider-arrows__left',
 				},
 				breakpoints: {
-					768: {
-						slidesPerView: 2
-					},
-					1290: {
-						slidesPerView: 1
-					},
-					1500: {
+					1280: {
 						slidesPerView: 2
 					}
 				},
@@ -132,7 +126,11 @@ $(window).on('load', function () {
 					}
 				}
 			});
-			all2.textContent = String(slider.slides.length - 1).padStart(2, '0');
+			if (window.matchMedia('(min-width: 1280px)').matches) {
+				all2.textContent = String(slider.slides.length - 1).padStart(2, '0');
+			} else {
+				all2.textContent = String(slider.slides.length).padStart(2, '0');
+			}
 		});
 	}
 })
