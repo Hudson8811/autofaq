@@ -125,8 +125,10 @@
 	}
 
 	&__item {
-		height: auto;
 		grid-row: span 2;
+		@include min(xl) {
+			height: auto;
+		}
 		+ #{$parent}__item {
 			border-top: 1px solid rgba($white, 0.2);
 		}
