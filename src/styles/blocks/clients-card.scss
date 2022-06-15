@@ -27,7 +27,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		filter: blur(24px);
+		backdrop-filter: blur(9px);
 		background-color: rgba($white, 0.05);
 	}
 
