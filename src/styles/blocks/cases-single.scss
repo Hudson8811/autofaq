@@ -245,6 +245,26 @@
 		}
 	}
 
+	&__indicators-grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-rows: 247px 203px;
+
+		@include max(xl) {
+			display: block;
+		}
+
+		&::before{
+			content: "";
+			display: block;
+			grid-row: 1;
+			@include max(xl) {
+				display: none;
+			}
+		}
+	}
+
 	&__indicators-col {
 		width: 50%;
 

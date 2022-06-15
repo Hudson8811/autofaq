@@ -110,8 +110,9 @@
 	}
 
 	&--small {
-		height: 450px;
+		height: auto;
 		padding: 45px 38px 42px;
+		grid-row: span 2;
 
 		@include max(xl) {
 			height: auto;
