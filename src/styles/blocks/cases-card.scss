@@ -39,12 +39,13 @@
 			display: none!important;
 		}
 	}
-	@include max(lg) {
+	@include max(xl) {
 		height: auto;
+		padding: 58px 30px 58px;
 	}
 
-	@include max(sm) {
-		padding: 30px 20px;
+	@include max(lg) {
+		padding: 30px 18px;
 	}
 
 	&__top {
@@ -142,15 +143,15 @@
 
 	&--small {
 		height: auto;
-		padding: 45px 38px 42px;
+		padding: 45px 30px 42px;
 		grid-row: span 2;
 
 		@include max(xl) {
 			height: auto;
 		}
 
-		@include max(sm) {
-			padding: 30px 20px;
+		@include max(lg) {
+			padding: 30px 18px;
 		}
 
 		#{$parent} {
@@ -184,10 +185,11 @@
 		@include max(xl) {
 			min-height: 400px;
 			height: auto;
+			padding: 44px 30px 58px ;
 		}
 
-		@include max(sm) {
-			padding: 30px 20px;
+		@include max(lg) {
+			padding: 30px 18px;
 		}
 
 		#{$parent} {

@@ -52,10 +52,12 @@
 		width: 50%;
 		height: 800px;
 		padding: 43px 57px 67px;
-
+		@include max(xl) {
+			padding: 36px 30px 60px;
+		}
 		@include max(lg) {
 			height: 400px;
-			padding: 6px 14px 24px;
+			padding: 6px 18px 24px;
 		}
 
 		@include max(sm) {

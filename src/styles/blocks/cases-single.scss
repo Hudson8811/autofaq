@@ -135,8 +135,11 @@
 		padding: 61px 57px 250px;
 		background-color: $white;
 
+		@include max(xl) {
+			padding: 61px 30px 100px;
+		}
 		@include max(lg) {
-			padding: 61px 45px 100px;
+			padding: 40px 18px 60px;
 		}
 	}
 
