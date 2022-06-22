@@ -35,7 +35,7 @@
 		display: flex;
 		justify-content: space-between;
 		height: 100%;
-		padding: 68px 104px 74px 54px;
+		padding: 68px 104px 74px 57px;
 		position: relative;
 
 		@include max(lg) {
@@ -136,7 +136,7 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		padding: 44px 51px 75px;
+		padding: 44px 57px 75px;
 		background-color: $white;
 		position: absolute;
 		top: 0;

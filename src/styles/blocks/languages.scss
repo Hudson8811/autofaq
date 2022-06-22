@@ -14,7 +14,10 @@
 		text-align: center;
 		border-bottom: 1px solid rgba($white, 0.5);
 		padding-bottom: 78px;
-
+		@media (max-width: 1700px){
+			font-size: 270px;
+			line-height: 270px;
+		}
 		@include max(xl) {
 			font-size: 230px;
 			line-height: 230px;

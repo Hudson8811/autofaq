@@ -150,7 +150,7 @@
 					letter-spacing: -0.3px;
 					color: $white;
 
-					@include max(xl) {
+					@include max(lg) {
 						font-size: 10px;
 						line-height: 12px;
 						font-weight: 600;

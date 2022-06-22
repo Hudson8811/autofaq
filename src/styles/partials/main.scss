@@ -66,8 +66,7 @@ textarea {
 
 .container {
 	max-width: 100%;
-	width: 1710px;
-	padding: 0 30px;
+	padding: 0 57px;
 	margin: 0 auto;
 
 	@include max(lg) {
@@ -76,9 +75,7 @@ textarea {
 
 	&--full {
 		width: 100%;
-		padding: 0 48px 0 56px;
-
-		@include max(xl) {
+		@include max(lg) {
 			padding: 0 18px;
 		}
 	}
