@@ -3,8 +3,10 @@
 	flex-direction: column;
 	justify-content: space-between;
 	height: 793px;
-	padding: 57px 63px 69px 47px;
-
+	padding: 57px 57px 69px;
+	@include max(xl) {
+		padding: 57px 30px 69px;
+	}
 	@include max(lg) {
 		height: 500px;
 		padding: 21px 18px 27px;

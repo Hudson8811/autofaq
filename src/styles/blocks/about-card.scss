@@ -7,9 +7,11 @@
 	justify-content: space-between;
 	height: 918px;
 	background-color: $white;
-	padding: 50px 52px 54px;
+	padding: 50px 57px 54px;
 	position: relative;
-
+	@include max(xl) {
+		padding: 50px 30px 54px;
+	}
 	@include max(lg) {
 		justify-content: flex-start;
 		height: auto;
@@ -123,8 +125,10 @@
 	&--blue {
 		background-color: $blue-25;
 		height: 918px;
-		padding: 38px 47px 67px 59px;
-
+		padding: 38px 57px 67px;
+		@include max(xl) {
+			padding: 38px 30px 67px;
+		}
 		@include max(lg) {
 			height: auto;
 			padding: 24px 16px 20px;

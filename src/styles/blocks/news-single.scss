@@ -30,8 +30,7 @@
 		font-size: 96px;
 		line-height: 98px;
 		letter-spacing: -4.5px;
-		color: rgba($black-31, 0.32);
-
+		color: $black-31;
 		@include max(xl) {
 			font-size: 60px;
 			line-height: 65px;
@@ -45,7 +44,7 @@
 		}
 
 		span {
-			color: $black-31;
+			color: rgba($black-31, 0.32);
 		}
 	}
 
@@ -151,14 +150,14 @@
 		font-size: 48px;
 		line-height: 60px;
 		letter-spacing: -1.4px;
-		color: rgba($black-31, 0.39);
+		color: $black-31;
 		border-top: 1px solid rgba($black-31, 0.2);
 		border-bottom: 1px solid rgba($black-31, 0.2);
 		margin-top: 77px;
-		padding: 108px 140px 108px 142px;
+		padding: 108px 0px;
 
-		@include max(lg) {
-			padding: 80px 30px;
+		@include max(xl) {
+			padding: 80px 0px;
 			letter-spacing: -0.4px;
 		}
 
@@ -177,7 +176,7 @@
 		}
 
 		span {
-			color: $black-31;
+			color: rgba($black-31, 0.39);
 		}
 	}
 

@@ -1,15 +1,17 @@
 .tariffs-card {
 	color: $white;
-	padding: 30px 54px 60px;
+	padding: 30px 57px 60px;
 	border: 1px solid rgba($white, 0.2);
 	position: relative;
 	overflow: hidden;
 	transition: box-shadow 0.3s ease;
 
 	@include max(xl) {
-		padding: 30px 25px 50px;
+		padding: 30px 30px 50px;
 	}
-
+	@include max(lg) {
+		padding: 30px 18px 50px;
+	}
 	@include hover {
 		box-shadow: 0 0 20px 0 rgba(34, 60, 80, 0.2);
 	}

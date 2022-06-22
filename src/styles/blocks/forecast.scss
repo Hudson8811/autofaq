@@ -56,10 +56,12 @@
 		}
 
 		&:first-of-type {
-			padding-left: 71px;
+			padding-left: 57px;
 			overflow: hidden;
 			z-index: 2;
-
+			@include max(xl) {
+				padding-left: 30px;
+			}
 			.forecast__diag {
 				height: 0;
 				background: rgba($white, 0.1);
@@ -79,9 +81,11 @@
 
 		&:nth-of-type(3) {
 			padding-left: 46px;
-			padding-right: 56px;
+			padding-right: 57px;
 			overflow: hidden;
-
+			@include max(xl) {
+				padding-right: 30px;
+			}
 			.forecast__diag {
 				height: 0;
 				background: rgba($white, 0.1);
@@ -98,7 +102,7 @@
 	}
 
 	&__text {
-		max-width: 255px;
+		max-width: 254px;
 		font-family: $secondFont;
 		font-size: 25px;
 		line-height: 30px;
@@ -107,7 +111,7 @@
 		color: $white;
 
 		@include max(lg) {
-			padding-left: 9px;
+			padding-left: 18px;
 			font-size: 16px;
 			line-height: 18px;
 			letter-spacing: -0.5px;
@@ -181,7 +185,7 @@
 		font-family: $secondFont;
 
 		@include max(lg) {
-			padding: 0 9px;
+			padding: 0 18px;
 		}
 
 		p {

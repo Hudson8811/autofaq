@@ -35,9 +35,11 @@
 		display: flex;
 		justify-content: space-between;
 		height: 100%;
-		padding: 68px 104px 74px 57px;
+		padding: 68px 57px 74px;
 		position: relative;
-
+		@include max(xl) {
+			padding: 68px 30px 74px;
+		}
 		@include max(lg) {
 			flex-direction: column;
 			justify-content: flex-start;
@@ -147,7 +149,9 @@
 		opacity: 0;
 		pointer-events: none;
 		transition: opacity 0.4s ease-in-out;
-
+		@include max(lg) {
+			padding: 44px 57px 75px;
+		}
 		@include max(lg) {
 			display: none;
 			padding: 108px 18px 0;

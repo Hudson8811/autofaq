@@ -139,11 +139,13 @@
 	}
 
 	&__accordion-item {
-		padding: 0 59px;
+		padding: 0 57px;
 		border-bottom: 1px solid rgba($white, 0.2);
 		cursor: pointer;
 		transition: opacity 0.3s ease;
-
+		@include max(xl) {
+			padding: 0 30px;
+		}
 		@include max(lg) {
 			padding: 0 18px;
 			border-bottom: 0;
