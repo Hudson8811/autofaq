@@ -29,6 +29,7 @@ function browsersync() {
 
 function startwatch() {
 	watch(['src/**/*.js', '!src/**/*.min.js'], scripts);
+	watch(['src/**/*.js', '!src/**/*.min.js'], scripts2);
 	watch('src/**/styles/**/*', styles);
 	watch('src/**/*.html').on('change', browserSync.reload);
 	watch('src/images/**/*', images);
@@ -52,8 +53,22 @@ function scripts() {
 		.pipe(plumber())
 		.pipe(rigger())
 		.pipe(sourcemaps.init())
-		.pipe(concat('main.min.js'))
+		.pipe(concat('modu.min.js'))
 		.pipe(uglify())
+		.pipe(sourcemaps.write('./maps'))
+		.pipe(dest('public/js/'))
+		.pipe(browserSync.stream())
+}
+function scripts2() {
+	return src([
+		//'node_modules/jquery/dist/jquery.min.js',
+		'src/js/module.js',
+	])
+		.pipe(plumber())
+		.pipe(rigger())
+		.pipe(sourcemaps.init())
+		.pipe(concat('module.min.js'))
+		//.pipe(uglify())
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(dest('public/js/'))
 		.pipe(browserSync.stream())
@@ -132,11 +147,12 @@ exports.browsersync = browsersync;
 exports.startwatch = startwatch;
 exports.pugHtml = pugHtml;
 exports.scripts = scripts;
+exports.scripts2 = scripts2;
 exports.styles = styles;
 exports.fonts = fonts;
 exports.images = images;
 exports.icons = icons;
 
-exports.build = series(cleandist, pugHtml, fonts, styles, scripts, images, icons);
+exports.build = series(cleandist, pugHtml, fonts, styles, scripts, scripts2, images, icons);
 
-exports.default = parallel(pugHtml, fonts, styles, scripts, images, icons, browsersync, startwatch);
+exports.default = parallel(pugHtml, fonts, styles, scripts, scripts2, images, icons, browsersync, startwatch);

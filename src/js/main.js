@@ -7,6 +7,7 @@
 //= ./libs/ScrollTrigger.min.js
 
 
+
 //= ./partials/main.js
 //= ./partials/sidebar.js
 //= ./partials/swiper-init.js
