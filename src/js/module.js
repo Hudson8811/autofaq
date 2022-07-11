@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 //import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
+//import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 //import { KTX2Loader } from 'js/jsm/loaders/KTX2Loader.js';
 //import { MeshoptDecoder } from './jsm/libs/meshopt_decoder.module.js';
@@ -10,183 +10,123 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 $(document).ready(function() {
-	let camera, scene, renderer;
-	let spotLight, lightHelper, shadowCameraHelper;
-	init();
-	animate();
 
-	function init() {
+	if (window.innerWidth > 1200) {
+		let camera, controls, scene, renderer;
+		let spotLight, spotLight2, spotLight3;
+		init();
+		animate();
 
-		const container = document.getElementById('model3d');
+		function init() {
+			const container = document.getElementById('model3d');
+			const wrapper = document.getElementById('container3d');
+			renderer = new THREE.WebGLRenderer( {  alpha: true, antialias: true } );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( wrapper.offsetWidth, wrapper.offsetWidth );
+			renderer.toneMapping = THREE.ACESFilmicToneMapping;
+			renderer.toneMappingExposure = 3;
+			renderer.setClearColor( 0x000000, 0 );
+			renderer.outputEncoding = THREE.sRGBEncoding;
+			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			container.appendChild( renderer.domElement );
 
-		renderer = new THREE.WebGLRenderer( {  alpha: true, antialias: true } );
-		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.toneMapping = THREE.ACESFilmicToneMapping;
-		renderer.toneMappingExposure = 1;
-		renderer.setClearColor( 0x000000, 0 );
-		renderer.outputEncoding = THREE.sRGBEncoding;
-		renderer.shadowMapEnabled = true;
-		renderer.shadowMapSoft = true;
-		container.appendChild( renderer.domElement );
+			camera = new THREE.PerspectiveCamera( 45, 1, 1, 1000 );
+			camera.position.set( 7.4, 0, 0 );
+			camera.lookAt( 0, 1, 0 );
 
-		camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-		camera.position.set( 0, 0, 0 );
+			scene = new THREE.Scene();
 
-		//const environment = new RoomEnvironment();
-		//const pmremGenerator = new THREE.PMREMGenerator( renderer );
-
-		scene = new THREE.Scene();
-		//scene.background = new THREE.Color( 0xffffff );
-		//scene.environment = pmremGenerator.fromScene( environment ).texture;
-
-
-		//light
-
-		const ambient = new THREE.AmbientLight( 0xffffff, 1 );
-		scene.add( ambient );
-
-		/*
-		spotLight = new THREE.SpotLight( 0xffffff, 1 );
-		spotLight.position.set( 0, 10, 35 );
-		spotLight.angle = Math.PI / 4;
-		spotLight.penumbra = 0.1;
-		spotLight.decay = 2;
-		spotLight.distance = 200;
-
-		spotLight.castShadow = true;
-		spotLight.shadow.camera.far = 200;
-		spotLight.shadow.mapSize.width = 256;
-		spotLight.shadow.mapSize.height = 256;
-		spotLight.shadow.bias = - 0.002;
-		spotLight.shadow.radius = 4;
-		spotLight.shadow.focus = 1;
-		spotLight.shadowDarkness = 1;
-		scene.add( spotLight );*/
+			const light = new THREE.AmbientLight( 0x333333, 0.9  );
+			scene.add( light );
 
 
-		var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-
-		directionalLight.position.set( 0, 10, 35 ).normalize();
-		directionalLight.castShadow = true;
-		directionalLight.shadow.mapSize.width = 2048;  // default
-		directionalLight.shadow.mapSize.height = 2048; // default
-		directionalLight.shadow.camera.near = 0.5;    // default
-		directionalLight.shadow.camera.far = 1000;     // default
-		scene.add( directionalLight );
-
-
-		directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-
-		directionalLight.position.set( -20, -10, 35 ).normalize();
-		directionalLight.castShadow = true;
-		directionalLight.shadow.mapSize.width = 2048;  // default
-		directionalLight.shadow.mapSize.height = 2048; // default
-		directionalLight.shadow.camera.near = 0.5;    // default
-		directionalLight.shadow.camera.far = 1000;     // default
-		scene.add( directionalLight );
-
-/*
-		spotLight = new THREE.SpotLight( 0xffffff, 1 );
-		spotLight.position.set( -20, -10, 35 );
-		spotLight.angle = Math.PI / 4;
-		spotLight.penumbra = 0.1;
-		spotLight.decay = 2;
-		spotLight.distance = 200;
-
-		spotLight.castShadow = true;
-		spotLight.shadow.camera.far = 200;
-		spotLight.shadow.mapSize.width = 256;
-		spotLight.shadow.mapSize.height = 256;
-		spotLight.shadow.bias = - 0.002;
-		spotLight.shadow.radius = 4;
-		spotLight.shadow.focus = 1;
-		spotLight.shadowDarkness = 1;
-		scene.add( spotLight );
-*/
+			spotLight = new THREE.SpotLight( 0xffffff, 1.5 );
+			spotLight.position.set( 1.8925437206586615, 6.562070933976482, -6.987850174038494,1 );
+			spotLight.angle = Math.PI / 9;
+			spotLight.penumbra = 0.1;
+			spotLight.decay = 1;
+			spotLight.distance = 0;
+			spotLight.castShadow = true;
+			spotLight.shadow.mapSize.width = 2048;
+			spotLight.shadow.mapSize.height = 2048;
+			spotLight.shadow.camera.near = 0.5;
+			spotLight.shadow.camera.far = 500;
+			spotLight.shadow.focus = 1;
+			spotLight.shadow.radius = 40;
+			scene.add( spotLight );
 
 
+			spotLight2 = new THREE.SpotLight( 0xffffff, 1.5 );
+			spotLight2.position.set( 6.037545724065725, 2.727324217791399, 9.004396247778892 );
+			spotLight2.angle = Math.PI / 9;
+			spotLight2.penumbra = 0.1;
+			spotLight2.decay = 1;
+			spotLight2.distance = 0;
+			spotLight2.castShadow = true;
+			spotLight2.shadow.mapSize.width = 2048;
+			spotLight2.shadow.mapSize.height = 2048;
+			spotLight2.shadow.camera.near = 0.5;
+			spotLight2.shadow.camera.far = 500;
+			spotLight2.shadow.focus = 1;
+			spotLight2.shadow.radius = 40;
+			scene.add( spotLight2 );
 
 
-		const loader = new GLTFLoader().setPath( 'images/' );
+			spotLight3 = new THREE.SpotLight( 0xffffff, 0.22 );
+			spotLight3.position.set( 11, 0, 0 );
+			spotLight3.angle = Math.PI / 9;
+			spotLight3.penumbra = 0.1;
+			spotLight3.decay = 1;
+			spotLight3.distance = 0;
+			spotLight3.castShadow = false;
+			scene.add( spotLight3 );
 
-		loader.load( 'SA_20_Static.glb', function( gltf ) {
-			gltf.scene.traverse( function( node ) {
-				if ( node.isMesh ) {
-					node.castShadow = true;
-					node.receiveShadow = true;
+			const loader = new GLTFLoader().setPath( 'images/' );
 
-					node.position.y = 0;
-					node.rotation.x = 1;
-					node.rotation.y = 4;
-					node.rotation.z = 0.4;
-				}
+			loader.load( 'scene.glb', function( gltf ) {
+				gltf.scene.traverse( function( node ) {
+					if ( node.isMesh ) {
+						node.castShadow = true;
+						node.receiveShadow = true;
+					}
+				} );
+				scene.add( gltf.scene );
 			} );
 
-
-			scene.add( gltf.scene );
-		} );
-
-
-		const controls = new OrbitControls( camera, renderer.domElement );
-		controls.addEventListener( 'change', render ); // use if there is no animation loop
-		controls.minDistance = 15;
-		controls.maxDistance = 15;
-		controls.target.set( 1, 0, 0 );
-		controls.update();
-
-
-
-		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-		window.addEventListener( 'resize', onWindowResize, false );
-	}
-
-	function onWindowResize() {
-
-		camera.aspect = window.innerWidth / window.innerHeight;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize( window.innerWidth, window.innerHeight );
-
-		render();
-
-	}
-/*
-
-	function onWindowResize() {
-		if (window.innerWidth > 1000) {
-			windowHalfX = window.innerWidth / 2;
-			windowHalfY = window.innerHeight / 2;
-			camera.aspect = 465 / 215;
-			camera.updateProjectionMatrix();
-			renderer.setSize( 800, 400 );
+			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+			window.addEventListener( 'resize', onWindowResize, false );
 		}
-	}*/
-	function onDocumentMouseMove( event ) {
-		mouseX = ( event.clientX - windowHalfX ) / 2;
-		mouseY = ( event.clientY - windowHalfY ) / 2;
-	}
-//
-	function animate() {
-		requestAnimationFrame( animate );
-		render();
-	}
-	function render() {
-		//camera.position.z += ( mouseX - camera.position.z ) * .09;
-		scene.traverse(function (child) {
-			if ( child.isMesh ) {
-				child.rotation.y = ( mouseX * 0.002  + 3 );
-				child.rotation.x = ( mouseY * 0.001 + 1 );
-				child.rotation.z = ( mouseX * 0.001 + 0.4 );
-			}
 
-		});
-		//camera.position.y += ( - mouseY - camera.position.y ) * .05;
-		camera.lookAt( scene.position );
-		renderer.render( scene, camera );
+		function onWindowResize() {
+			camera.aspect = 1;
+			camera.updateProjectionMatrix();
+
+			const wrapper = document.getElementById('container3d');
+			renderer.setSize( wrapper.offsetWidth, wrapper.offsetWidth );
+			render();
+		}
+
+		function onDocumentMouseMove( event ) {
+			mouseX = ( event.clientX - windowHalfX ) / 2;
+			mouseY = ( event.clientY - windowHalfY ) / 2;
+		}
+
+		function animate() {
+			requestAnimationFrame( animate );
+			render();
+		}
+		function render() {
+			scene.traverse(function (child) {
+				if ( child.isMesh ) {
+					child.rotation.y = ( -mouseX * 0.002 );
+					child.rotation.z = ( -mouseY * 0.001 );
+				}
+
+			});
+			renderer.render( scene, camera );
+		}
 	}
-
-
 });
 
 
