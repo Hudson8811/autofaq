@@ -11,7 +11,7 @@ var windowHalfY = window.innerHeight / 2;
 
 $(document).ready(function() {
 
-	if (window.innerWidth > 1200) {
+	if (window.innerWidth > 1200 && $('#model3d').length > 0) {
 		let camera, controls, scene, renderer;
 		let spotLight, spotLight2, spotLight3;
 		init();
@@ -96,6 +96,7 @@ $(document).ready(function() {
 
 			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 			window.addEventListener( 'resize', onWindowResize, false );
+			$('.first-screen__bg').remove();
 		}
 
 		function onWindowResize() {
