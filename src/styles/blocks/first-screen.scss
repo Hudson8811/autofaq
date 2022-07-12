@@ -181,6 +181,10 @@
 			margin-top: 50px;
 		}
 
+		@include max(1500) {
+			padding-right: 0;
+		}
+
 		@include max(lg) {
 			margin-top: 60px;
 			padding-right: 0;
@@ -215,6 +219,8 @@
 	&__partner {
 		display: flex;
 		margin-left: auto;
+
+
 
 		@include max(lg) {
 			display: none;
