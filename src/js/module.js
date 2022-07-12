@@ -96,7 +96,7 @@ $(document).ready(function() {
 
 			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 			window.addEventListener( 'resize', onWindowResize, false );
-			$('.first-screen__bg').remove();
+			//$('.first-screen__bg').remove();
 		}
 
 		function onWindowResize() {
