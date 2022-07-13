@@ -61,7 +61,7 @@
 		width: 689px;
 		height: 689px;
 		margin-top: -253px;
-		padding-right: 50px;
+		transform: translateX(-25px);
 
 		@include max(lg) {
 			display: none;

@@ -160,14 +160,13 @@ $(document).ready(function() {
 			container.appendChild( renderer2.domElement );
 
 			camera2 = new THREE.PerspectiveCamera( 45, 1, 0.1, 200 );
-			camera2.position.set( 1.48, 0, 0 );
+			camera2.position.set( 2.6, 0, 0 );
 			camera2.lookAt( 0, 0, 0 );
 
 			scene2 = new THREE.Scene();
 
 			const light = new THREE.AmbientLight( 0xffffff, 1  );
 			scene2.add( light );
-
 
 
 			const loader = new GLTFLoader().setPath( 'images/' );
@@ -201,7 +200,7 @@ $(document).ready(function() {
 		function render2() {
 			scene2.traverse(function (child) {
 				if ( child.isMesh ) {
-					child.rotation.z = ( -mouseX * 0.004 );
+					child.rotation.y = ( -mouseX * 0.004 );
 					//child.rotation.z = ( -mouseY * 0.001 );
 				}
 
