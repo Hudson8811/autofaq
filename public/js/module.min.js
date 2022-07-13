@@ -96,7 +96,8 @@ $(document).ready(function() {
 
 			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 			window.addEventListener( 'resize', onWindowResize, false );
-			//$('.first-screen__bg').remove();
+			$('.first-screen__3d-preloader').fadeOut(500);
+			$('#model3d').css('opacity',1);
 		}
 
 		function onWindowResize() {
