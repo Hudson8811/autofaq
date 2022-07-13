@@ -57,10 +57,24 @@
 		}
 	}
 
-	&__model {
+	&__3d {
+		width: 689px;
+		height: 689px;
 		margin-top: -253px;
 		padding-right: 50px;
 
+		@include max(lg) {
+			display: none;
+		}
+	}
+
+
+	&__model {
+		margin-top: -253px;
+		padding-right: 50px;
+		@include min(lg) {
+			display: none;
+		}
 		@include max(lg) {
 			width: 177px;
 			margin: 31px auto 0;

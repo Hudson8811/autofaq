@@ -11,8 +11,16 @@ var windowHalfY = window.innerHeight / 2;
 
 $(document).ready(function() {
 
+	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+	function onDocumentMouseMove( event ) {
+		mouseX = ( event.clientX - windowHalfX ) / 2;
+		mouseY = ( event.clientY - windowHalfY ) / 2;
+	}
+
+
 	if (window.innerWidth > 1200 && $('#model3d').length > 0) {
 		let camera, controls, scene, renderer;
+		let camera2, controls2, scene2, renderer2;
 		let spotLight, spotLight2, spotLight3;
 		init();
 		animate();
@@ -94,7 +102,7 @@ $(document).ready(function() {
 				scene.add( gltf.scene );
 			} );
 
-			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
 			window.addEventListener( 'resize', onWindowResize, false );
 			$('.first-screen__3d-preloader').fadeOut(500);
 			$('#model3d').css('opacity',1);
@@ -109,10 +117,7 @@ $(document).ready(function() {
 			render();
 		}
 
-		function onDocumentMouseMove( event ) {
-			mouseX = ( event.clientX - windowHalfX ) / 2;
-			mouseY = ( event.clientY - windowHalfY ) / 2;
-		}
+
 
 		function animate() {
 			requestAnimationFrame( animate );
@@ -127,6 +132,81 @@ $(document).ready(function() {
 
 			});
 			renderer.render( scene, camera );
+		}
+
+
+
+
+	}
+
+
+	if (window.innerWidth > 1200 && $('#model3d2').length > 0) {
+		let camera2, controls2, scene2, renderer2;
+		init2();
+		animate2();
+
+		function init2() {
+			const container = document.getElementById('model3d2');
+			const wrapper = document.getElementById('container3d2');
+			renderer2 = new THREE.WebGLRenderer( {  alpha: true, antialias: true } );
+			renderer2.setPixelRatio( window.devicePixelRatio );
+			renderer2.setSize( wrapper.offsetWidth, wrapper.offsetWidth );
+			renderer2.toneMapping = THREE.ACESFilmicToneMapping;
+			renderer2.toneMappingExposure = 1;
+			renderer2.setClearColor( 0x000000, 0 );
+			renderer2.outputEncoding = THREE.sRGBEncoding;
+			renderer2.shadowMap.enabled = true;
+			renderer2.shadowMap.type = THREE.PCFSoftShadowMap;
+			container.appendChild( renderer2.domElement );
+
+			camera2 = new THREE.PerspectiveCamera( 45, 1, 0.1, 200 );
+			camera2.position.set( 1.48, 0, 0 );
+			camera2.lookAt( 0, 0, 0 );
+
+			scene2 = new THREE.Scene();
+
+			const light = new THREE.AmbientLight( 0xffffff, 1  );
+			scene2.add( light );
+
+
+
+			const loader = new GLTFLoader().setPath( 'images/' );
+
+			loader.load( 'earth.glb', function( gltf ) {
+				gltf.scene.traverse( function( node ) {
+					if ( node.isMesh ) {
+						node.castShadow = true;
+						node.receiveShadow = true;
+					}
+				} );
+				scene2.add( gltf.scene );
+			} );
+
+			window.addEventListener( 'resize', onWindowResize2, false );
+		}
+
+		function onWindowResize2() {
+			camera2.aspect = 1;
+			camera2.updateProjectionMatrix();
+			const wrapper = document.getElementById('container3d2');
+			renderer2.setSize( wrapper.offsetWidth, wrapper.offsetWidth );
+			render2();
+		}
+
+
+		function animate2() {
+			requestAnimationFrame( animate2 );
+			render2();
+		}
+		function render2() {
+			scene2.traverse(function (child) {
+				if ( child.isMesh ) {
+					child.rotation.z = ( -mouseX * 0.004 );
+					//child.rotation.z = ( -mouseY * 0.001 );
+				}
+
+			});
+			renderer2.render( scene2, camera2 );
 		}
 	}
 });
