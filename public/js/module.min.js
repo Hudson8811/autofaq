@@ -141,7 +141,7 @@ $(document).ready(function() {
 
 
 	if (window.innerWidth > 1200 && $('#model3d2').length > 0) {
-		let camera2, controls2, scene2, renderer2;
+		let camera2, controls2, scene2, renderer2, spotLight3;
 		init2();
 		animate2();
 
@@ -151,8 +151,6 @@ $(document).ready(function() {
 			renderer2 = new THREE.WebGLRenderer( {  alpha: true, antialias: true } );
 			renderer2.setPixelRatio( window.devicePixelRatio );
 			renderer2.setSize( wrapper.offsetWidth, wrapper.offsetWidth );
-			renderer2.toneMapping = THREE.ACESFilmicToneMapping;
-			renderer2.toneMappingExposure = 1;
 			renderer2.setClearColor( 0x000000, 0 );
 			renderer2.outputEncoding = THREE.sRGBEncoding;
 			renderer2.shadowMap.enabled = true;
@@ -165,9 +163,17 @@ $(document).ready(function() {
 
 			scene2 = new THREE.Scene();
 
-			const light = new THREE.AmbientLight( 0xffffff, 1  );
+			const light = new THREE.AmbientLight( 0xfffff, 0.5  );
 			scene2.add( light );
 
+			spotLight3 = new THREE.SpotLight( 0xffffff, 1 );
+			spotLight3.position.set( 5, 0, 0 );
+			spotLight3.angle = Math.PI / 10;
+			spotLight3.penumbra = 0.1;
+			spotLight3.decay = 1;
+			spotLight3.distance = 0;
+			spotLight3.castShadow = false;
+			scene2.add( spotLight3 );
 
 			const loader = new GLTFLoader().setPath( 'images/' );
 
