@@ -163,8 +163,8 @@ $(document).ready(function() {
 
 			scene2 = new THREE.Scene();
 
-			const light = new THREE.AmbientLight( 0xfffff, 0.5  );
-			scene2.add( light );
+			const light2 = new THREE.AmbientLight( 0x61A1F6, 0.8  );
+			scene2.add( light2 );
 
 			spotLight3 = new THREE.SpotLight( 0xffffff, 1 );
 			spotLight3.position.set( 5, 0, 0 );
