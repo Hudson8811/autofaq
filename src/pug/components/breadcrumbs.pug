@@ -1,0 +1,11 @@
+mixin breadcrumbs(links, className)
+	nav.breadcrumbs(class=className)
+		each elem, i in links
+			if i === links.length - 1
+				li
+					span.breadcrumbs__link.breadcrumbs__link--active!= elem.text
+			else
+				li
+					a(href=elem.href)
+						span.breadcrumbs__link= elem.text
+						+icon('chevron-right')(width='6', height='10')

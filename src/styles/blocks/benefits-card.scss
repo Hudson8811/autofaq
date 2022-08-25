@@ -1,0 +1,76 @@
+.benefits-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 793px;
+	padding: 57px 57px 69px;
+	@include max(xl) {
+		padding: 57px 30px 69px;
+	}
+	@include max(lg) {
+		height: 500px;
+		padding: 21px 18px 27px;
+	}
+
+	@include max(sm) {
+		height: 289px;
+	}
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid rgba($white, 0.7);
+		padding-bottom: 37px;
+
+		@include max(lg) {
+			padding-bottom: 20px;
+		}
+	}
+
+	&__coef {
+		font-size: 96px;
+		line-height: 96px;
+		letter-spacing: -5px;
+		color: $white;
+
+		@include max(lg) {
+			font-size: 45px;
+			line-height: 55px;
+			letter-spacing: -2px;
+		}
+	}
+
+	&__advantage {
+		font-size: 48px;
+		line-height: 52px;
+		letter-spacing: -1.4px;
+		color: $white;
+
+		@include max(lg) {
+			font-size: 24px;
+			line-height: 24px;
+			letter-spacing: -0.9px;
+		}
+	}
+
+	&__text {
+		max-width: 385px;
+		font-size: 25px;
+		line-height: 30px;
+		letter-spacing: -0.3px;
+		color: $white;
+
+		@include max(lg) {
+			max-width: 174px;
+			font-size: 12px;
+			line-height: 140.3%;
+			letter-spacing: -0.015em;
+			color: rgba($white, 0.56);
+		}
+	}
+
+	&--glass {
+		background-color: rgba($white, 0.1);
+		backdrop-filter: blur(9px);
+	}
+}

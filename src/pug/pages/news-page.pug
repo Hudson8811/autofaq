@@ -1,0 +1,24 @@
+extends ../layouts/default
+
+block vars
+	-
+		const page = {
+			title: 'News'
+		};
+	- headerMod = 'header--theme-white'
+
+block main
+	article.news-page
+		.container.container--full.news-page__container
+			h1.news-page__title Новости
+		.news-page__wrapper
+			each item in NEWS_PAGE
+				+news-card(
+					item.img,
+					'',
+					item.day,
+					item.month,
+					item.year,
+					item.text,
+					'swiper-slide news-page__item'
+				)

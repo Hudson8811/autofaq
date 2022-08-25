@@ -1,0 +1,250 @@
+.benefits {
+	$parent: &;
+
+	background-color: $blue-25;
+	padding: 277px 0 534px;
+	background-repeat: no-repeat;
+	background-size: 100% 50%;
+	background-position: 0 100%;
+
+	@include max(lg) {
+		padding: 9px 0 322px;
+		background-size: 100% 40%;
+	}
+
+	&__progress {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 208px;
+		height: 208px;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 192px;
+		height: 192px;
+		background-color: $green-47;
+		border-radius: 50%;
+		position: absolute;
+		top: 186px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+		cursor: pointer;
+
+		@include max(lg) {
+			display: none;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&::after {
+			width: 1080px;
+			height: 1080px;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1080' height='1080' viewBox='0 0 1080 1080' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='540' cy='540' r='539.5' stroke='url(%23paint0_linear_253_18367)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear_253_18367' x1='777' y1='1.17873e-05' x2='274.5' y2='740.5' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+			pointer-events: none;
+		}
+
+		svg {
+			fill: $white;
+		}
+	}
+
+	&__title {
+		font-size: 308px;
+		line-height: 308px;
+		letter-spacing: -16.0592px;
+		color: $white;
+		position: relative;
+		z-index: 1;
+
+		@include max(lg) {
+			font-size: 45px;
+			line-height: 55px;
+			letter-spacing: -2px;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		position: relative;
+
+		@include max(lg) {
+			flex-direction: column;
+		}
+	}
+
+	&__col {
+		width: 50%;
+
+		@include max(lg) {
+			width: 100%;
+		}
+	}
+
+	&__item {
+		&--empty {
+			width: 100%;
+			height: 1050px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			margin-top: -119px;
+
+			@include max(lg) {
+				display: none;
+			}
+		}
+
+		&--mobile {
+			display: none;
+
+			@include max(lg) {
+				display: flex;
+			}
+		}
+
+		&--desk {
+			display: flex;
+
+			@include max(lg) {
+				display: none;
+			}
+		}
+	}
+
+	&__accordion {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin-top: -18px;
+		position: relative;
+		height: 730px;
+
+		@include max(lg) {
+			display: block;
+			height: auto;
+			margin-top: 57px;
+		}
+	}
+
+	&__accordion-item {
+		padding: 0 57px;
+		border-bottom: 1px solid rgba($white, 0.2);
+		cursor: pointer;
+		transition: opacity 0.3s ease;
+		@include max(xl) {
+			padding: 0 30px;
+		}
+		@include max(lg) {
+			padding: 0 18px;
+			border-bottom: 0;
+		}
+
+		@include hover {
+			opacity: 0.85;
+		}
+
+		&.active {
+			#{$parent} {
+				&__accordion-wrapper {
+					p {
+						&:first-child {
+							font-size: 48px;
+							line-height: 52px;
+							font-weight: 400;
+							letter-spacing: -1.4px;
+							text-transform: unset;
+
+							@include max(lg) {
+								font-size: 24px;
+								line-height: 24px;
+								letter-spacing: -0.9px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__accordion-wrapper {
+		max-width: 368px;
+
+		@include max(lg) {
+			padding-right: 70px;
+		}
+
+		p {
+			&:first-child {
+				font-size: 13px;
+				line-height: 15px;
+				font-weight: 600;
+				letter-spacing: 0.025em;
+				text-transform: uppercase;
+				color: $white;
+				padding: 37px 0;
+
+				@include max(lg) {
+					font-size: 24px;
+					line-height: 24px;
+					font-weight: 400;
+					letter-spacing: -0.9px;
+					text-transform: none;
+					padding: 49px 0 0 0;
+				}
+			}
+
+			&:last-child {
+				display: none;
+				font-size: 25px;
+				line-height: 30px;
+				letter-spacing: -0.3px;
+				color: rgba($white, 0.3);
+				margin-top: -17px;
+				padding-bottom: 190px;
+
+				@include max(lg) {
+					display: block;
+					font-size: 12px;
+					line-height: 140.3%;
+					letter-spacing: -0.015em;
+					color: rgba($white, 0.56);
+					margin-top: 20px;
+					padding-bottom: 42px;
+				}
+			}
+		}
+	}
+
+	&__accordion-image {
+		display: none;
+
+		@include max(lg) {
+			display: block;
+			width: calc(100% + 36px);
+			height: 400px;
+			margin-left: -18px;
+		}
+
+		@include max(sm) {
+			height: 216px;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

@@ -1,0 +1,83 @@
+.header {
+	$parent: &;
+
+	width: 100%;
+	height: 185px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 47px;
+	z-index: 100;
+
+	@include max(lg) {
+		padding-top: 65px;
+	}
+
+	@include max(sm) {
+		padding-top: 55px;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__about {
+		max-width: 220px;
+		font-size: 16px;
+		line-height: 23px;
+		letter-spacing: -0.015em;
+		color: $gray-9e;
+
+		@include max(lg) {
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		@include max(sm) {
+			max-width: 185px;
+			font-size: 12px;
+			line-height: 17px;
+		}
+	}
+
+	&__demo {
+		margin-top: -10px;
+		margin-right: -10px;
+		margin-left: 126px;
+
+		@include max(xl) {
+			margin-left: 25px;
+		}
+
+		@include max(lg) {
+			display: none;
+		}
+	}
+
+	&--theme-white {
+		#{$parent} {
+			&__about {
+				color: rgba($white, 0.5);
+			}
+
+			&__demo {
+				a {
+					background-color: rgba($white, 0.1);
+					color: $white;
+					transition: background-color 0.3s ease;
+
+					@include hover {
+						background-color: rgba($white, 0.3);
+					}
+				}
+			}
+		}
+
+		.menu {
+			li a {
+				color: $white;
+			}
+		}
+	}
+}

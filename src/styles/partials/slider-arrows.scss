@@ -1,0 +1,44 @@
+.slider-arrows {
+	display: flex;
+	position: relative;
+	z-index: 5;
+
+	button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 47px;
+		height: 47px;
+		border-radius: 50%;
+		background-color: rgba($white, 0.2);
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+
+		@include hover {
+			background-color: rgba($white, 0.4);
+		}
+
+		&:first-child {
+			margin-right: 8px;
+
+			@include hover {
+				svg {
+					transform: translateX(-2px);
+				}
+			}
+		}
+
+		&:last-child {
+			@include hover {
+				svg {
+					transform: translateX(2px);
+				}
+			}
+		}
+
+		svg {
+			fill: $white;
+			transition: transform 0.3s ease;
+		}
+	}
+}

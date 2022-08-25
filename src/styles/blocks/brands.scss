@@ -1,0 +1,162 @@
+.brands {
+	$parent: &;
+
+	background: linear-gradient(208.78deg, #255ec1 19.54%, #47d6aa 98.93%);
+	position: relative;
+	padding: 66px 0 344px;
+
+	@include max(lg) {
+		padding: 17px 0 94px;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		width: 1247px;
+		height: 1247px;
+		border-radius: 50%;
+		background: linear-gradient(225deg, #5386cd -10.37%, rgba(75, 164, 190, 0) 90.5%);
+		transform: translateX(-50%);
+		position: absolute;
+		top: 150px;
+		left: 48.5%;
+
+		@include max(xl) {
+			width: 600px;
+			height: 600px;
+			top: 120px;
+		}
+
+		@include max(sm) {
+			width: 280px;
+			height: 280px;
+			top: 56px;
+		}
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__topic {
+		margin-bottom: 231px;
+
+		@include max(lg) {
+			margin-bottom: 60px;
+		}
+
+		@include max(sm) {
+			margin-bottom: 36px;
+		}
+	}
+
+	&__text {
+		max-width: 870px;
+		font-size: 96px;
+		line-height: 96px;
+		letter-spacing: -4.5px;
+		color: rgba($white, 0.2);
+		transition: color 0.3s ease;
+
+		@include max(lg) {
+			font-size: 30px;
+			line-height: 30px;
+			letter-spacing: -1.40625px;
+		}
+
+		+ #{$parent}__text {
+			margin-top: 161px;
+
+			@include max(lg) {
+				margin-top: 120px;
+			}
+
+			@include max(sm) {
+				margin-top: 85px;
+			}
+		}
+
+		&--right {
+			text-align: right;
+			margin-left: auto;
+		}
+	}
+
+	&__marquee {
+		overflow: hidden;
+
+		> div {
+			display: flex;
+			flex-wrap: nowrap;
+		}
+
+		.js-marquee {
+			display: flex;
+		}
+
+		&--mt {
+			margin-top: 258px;
+
+			@include max(lg) {
+				margin-top: 180px;
+			}
+
+			@include max(sm) {
+				margin-top: 79px;
+			}
+		}
+	}
+
+	&__marquee-item {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 310px;
+		height: 310px;
+		background-color: rgba(255, 255, 255, 0.1);
+		border-radius: 500px;
+		font-family: $secondFont;
+		font-size: 13px;
+		line-height: 16px;
+		letter-spacing: 0.025em;
+		text-transform: uppercase;
+		color: $white;
+
+		@include max(lg) {
+			width: 210px;
+			height: 210px;
+		}
+
+		@include max(sm) {
+			width: 149px;
+			height: 149px;
+		}
+
+		svg {
+			@include max(lg) {
+				width: 55%;
+			}
+
+			@include max(sm) {
+				width: 50%;
+			}
+		}
+
+		&--big {
+			width: 574px;
+
+			@include max(lg) {
+				width: 380px;
+			}
+
+			@include max(sm) {
+				width: 276px;
+			}
+		}
+
+		&--green {
+			background-color: $green;
+			font-weight: 700;
+		}
+	}
+}

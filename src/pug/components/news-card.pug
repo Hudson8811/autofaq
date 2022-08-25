@@ -1,0 +1,19 @@
+mixin news-card(img, brand, day, month, year, text, className)
+	a.news-card(class= className, href='#', target='_blank')
+		figure
+			if img
+				.news-card__bg
+					img(src='images/news-card/' + img + '.jpg', alt='')
+			else
+				.news-card__bg
+			.news-card__content
+				.news-card__top
+					if day
+						.news-card__day!= day
+					if brand
+						.news-card__brand
+							img(src='images/publish/' + brand + '.png', alt='')
+					div
+						.news-card__month!= month
+						.news-card__year!= year
+				.news-card__text!= text

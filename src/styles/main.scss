@@ -1,0 +1,57 @@
+/* base */
+@import "base/var";
+@import "base/reset";
+@import "base/fonts";
+@import "base/animations";
+
+/* mixin */
+@import "base/mixin";
+
+/*libs*/
+@import "./../../node_modules/swiper/swiper";
+@import "libs/select2.min.css";
+
+
+/* main */
+@import "partials/main";
+
+/* components */
+@import "partials/button";
+@import "partials/menu";
+@import "partials/socials";
+@import "partials/lang-switcher";
+@import "partials/sidebar";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/slider-arrows";
+@import "partials/breadcrumbs";
+
+
+/*blocks*/
+@import "blocks/first-screen";
+@import "blocks/brands";
+@import "blocks/services";
+@import "blocks/features";
+@import "blocks/clients-card";
+@import "blocks/clients";
+@import "blocks/languages";
+@import "blocks/about-card";
+@import "blocks/about";
+@import "blocks/nlu";
+@import "blocks/advantages-card";
+@import "blocks/advantages";
+@import "blocks/benefits-card";
+@import "blocks/benefits";
+@import "blocks/calculate";
+@import "blocks/news-card";
+@import "blocks/news";
+@import "blocks/forecast";
+@import "blocks/tariffs-card";
+@import "blocks/tariffs";
+@import "blocks/cases";
+@import "blocks/news-page";
+@import "blocks/news-single";
+@import "blocks/cases-card";
+@import "blocks/cases-single";
+@import "blocks/about-page";
+@import "blocks/zaprosit-demo";
