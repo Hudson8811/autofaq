@@ -1,8 +1,0 @@
-mixin advantages-card(img, title, text, className)
-	.advantages-card(class= className)
-		.advantages-card__bg
-			img.lazyloadImages(data-original='images/advantages-card/' + img + '.png', alt='')
-		.advantages-card__title!= title
-		.advantages-card__text!= text
-		.advantages-card__more
-			a(href='#', target='_blank') Подробнее

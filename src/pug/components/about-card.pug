@@ -1,8 +1,0 @@
-mixin about-card(title, topic, text, img, className)
-	.about-card(class= className)&attributes(attributes)
-		.about-card__top
-			.about-card__title!= title
-			.about-card__topic!= topic
-		.about-card__bg
-			img.lazyloadImages(data-original='images/about-card/' + img + '.png', alt='')
-		.about-card__text!= text
