@@ -79,7 +79,9 @@
 		height: 141px;
 		padding-left: 60px;
 		position: relative;
-
+		@include max(xxl) {
+			height: 110px;
+		}
 		@include max(lg) {
 			justify-content: space-between;
 			height: 77px;
@@ -399,7 +401,9 @@
 				letter-spacing: -0.3px;
 				color: rgba($white, 0.2);
 				margin-top: 114px;
-
+				@include max(xxl) {
+					margin-top: 50px;
+				}
 				@include max(lg) {
 					max-width: 155px;
 					width: 100%;
