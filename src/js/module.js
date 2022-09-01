@@ -237,3 +237,8 @@ $(document).ready(function(){
 		effect: "fadeIn",
 	});
 });
+$(document).ready(function() {
+	$('.sidebar__menu-plus').click(function(event) {
+		$(this).toggleClass('_active').next().slideToggle(500);
+	});
+});
