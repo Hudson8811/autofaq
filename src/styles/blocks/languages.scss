@@ -109,7 +109,7 @@
 					@include max(lg) {
 						background-color: $green-45;
 					}
-
+					color: $white;
 					a {
 						color: $white;
 					}
@@ -121,7 +121,22 @@
 					background-color: rgba($white, 0.1);
 					border-radius: 200px;
 				}
-
+				font-size: 13px;
+				line-height: 15px;
+				font-weight: 600;
+				letter-spacing: 0.025em;
+				text-transform: uppercase;
+				color: rgba($white, 0.5);
+							
+				@include max(lg) {
+					font-size: 10px;
+					line-height: 12px;
+					color: $white;
+				}
+				
+				@include hover {
+					color: $white;
+				}
 				a {
 					font-size: 13px;
 					line-height: 15px;
