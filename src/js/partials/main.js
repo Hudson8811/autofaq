@@ -181,26 +181,28 @@ $(document).ready(function() {
 	 * Смещение блоков сверху вниз
 	 */
 	if (window.matchMedia('(min-width: 1280px)').matches) {
-		$(window).scroll(function () {
-			var scroll = $(this).scrollTop();
-			var winH = $(this).innerHeight();
-			var elH = $('.advantages').outerHeight();
-			var elOffset = $('.advantages').offset().top - 500;
-			var centerScroll = (winH - elH) / 2 + scroll;
+		if ($('.advantages-card') && $('.advantages-card').length > 0) {
+			$(window).scroll(function () {
+				var scroll = $(this).scrollTop();
+				var winH = $(this).innerHeight();
+				var elH = $('.advantages').outerHeight();
+				var elOffset = $('.advantages').offset().top - 500;
+				var centerScroll = (winH - elH) / 2 + scroll;
 
-			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
-				$('.advantages-card').each(function (index, elem) {
-					switch (index) {
-						case 1:
-							TweenMax.to(elem, 1, {y: 178, ease: Linear.easeNone});
-							break;
-						case 2:
-							TweenMax.to(elem, 1, {y: 340, ease: Linear.easeNone}, 0.6);
-							break;
-					}
-				});
-			}
-		});
+				if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+					$('.advantages-card').each(function (index, elem) {
+						switch (index) {
+							case 1:
+								TweenMax.to(elem, 1, {y: 178, ease: Linear.easeNone});
+								break;
+							case 2:
+								TweenMax.to(elem, 1, {y: 340, ease: Linear.easeNone}, 0.6);
+								break;
+						}
+					});
+				}
+			});
+		}
 	}
 
 	/**
@@ -209,33 +211,35 @@ $(document).ready(function() {
 	if (window.matchMedia('(min-width: 1280px)').matches) {
 		var diagForecast = gsap.utils.toArray('.forecast__diag');
 
-		$(window).scroll(function () {
-			var scroll = $(this).scrollTop();
-			var winH = $(this).innerHeight();
-			var elH = $('.forecast').outerHeight();
-			var elOffset = $('.forecast').offset().top - 900;
-			var centerScroll = (winH - elH) / 2 + scroll;
+		if (diagForecast && diagForecast.length > 0) {
+			$(window).scroll(function () {
+				var scroll = $(this).scrollTop();
+				var winH = $(this).innerHeight();
+				var elH = $('.forecast').outerHeight();
+				var elOffset = $('.forecast').offset().top - 900;
+				var centerScroll = (winH - elH) / 2 + scroll;
 
-			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
-				diagForecast.forEach((elem, index) => {
-					switch (index) {
-						case 0:
-							setTimeout(function () {
-								TweenMax.to(elem, 1, {height: '56%', ease: Linear.easeNone}, 0);
-							}, 1300);
-							break;
-						case 1:
-							setTimeout(function () {
-								TweenMax.to(elem, 1, {height: '70%', ease: Linear.easeNone}, 0);
-							}, 700);
-							break;
-						case 2:
-							TweenMax.to(elem, 1, {height: '82%', ease: Linear.easeNone}, 0);
-							break;
-					}
-				});
-			}
-		});
+				if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+					diagForecast.forEach((elem, index) => {
+						switch (index) {
+							case 0:
+								setTimeout(function () {
+									TweenMax.to(elem, 1, {height: '56%', ease: Linear.easeNone}, 0);
+								}, 1300);
+								break;
+							case 1:
+								setTimeout(function () {
+									TweenMax.to(elem, 1, {height: '70%', ease: Linear.easeNone}, 0);
+								}, 700);
+								break;
+							case 2:
+								TweenMax.to(elem, 1, {height: '82%', ease: Linear.easeNone}, 0);
+								break;
+						}
+					});
+				}
+			});
+		}
 	}
 
 	/**
@@ -259,8 +263,13 @@ $(document).ready(function() {
 		});
 	}
 
-	setTextColor(textColorChanged);
-	setTextColor($('.calculate__title'));
+	if (textColorChanged && textColorChanged.length > 0) {
+		setTextColor(textColorChanged);
+	}
+
+	if ($('.calculate__title') && $('.calculate__title').length > 0) {
+		setTextColor($('.calculate__title'));
+	}
 
 	/**
 	 * Движение текста влево при появлении блока
@@ -268,12 +277,15 @@ $(document).ready(function() {
 	$(window).scroll(function () {
 		var scroll = $(this).scrollTop();
 		var winH = $(this).innerHeight();
-		var elH = moveToLeftText.outerHeight();
-		var elOffset = moveToLeftText.offset().top;
-		var centerScroll = (winH - elH) / 2 + scroll;
 
-		if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
-			moveToLeftText.css('transform', 'translateX(0)')
+		if (moveToLeftText && moveToLeftText.length > 0) {
+			var elH = moveToLeftText.outerHeight();
+			var elOffset = moveToLeftText.offset().top;
+			var centerScroll = (winH - elH) / 2 + scroll;
+
+			if (centerScroll >= elOffset && centerScroll <= elH + elOffset) {
+				moveToLeftText.css('transform', 'translateX(0)')
+			}
 		}
 	});
 
@@ -286,5 +298,13 @@ $(document).ready(function() {
 	$(window).on('resize', () => {
 		$('.forecast__marquee--white-1').css('margin-left', -$('.forecast__col').outerWidth());
 		$('.forecast__marquee--white-2').css('margin-left', -$('.forecast__col').outerWidth() * 2);
+	});
+
+	$('img.lazyloadImages').lazyload({
+		effect: "fadeIn",
+	});
+
+	$('.sidebar__menu-plus').click(function(event) {
+		$(this).toggleClass('_active').next().slideToggle(500);
 	});
 })

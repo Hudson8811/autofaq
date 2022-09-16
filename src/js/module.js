@@ -230,15 +230,3 @@ $(document).ready(function() {
 	$('.form-item-anim__input').each(toggleInput);
 	$('.form-item-anim__input').on('input',toggleInput);
 })
-
-
-$(document).ready(function(){
-	$('img.lazyloadImages').lazyload({
-		effect: "fadeIn",
-	});
-});
-$(document).ready(function() {
-	$('.sidebar__menu-plus').click(function(event) {
-		$(this).toggleClass('_active').next().slideToggle(500);
-	});
-});

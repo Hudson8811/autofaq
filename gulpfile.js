@@ -53,7 +53,7 @@ function scripts() {
 		.pipe(plumber())
 		.pipe(rigger())
 		.pipe(sourcemaps.init())
-		.pipe(concat('modu.min.js'))
+		.pipe(concat('main.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(dest('public/js/'))
