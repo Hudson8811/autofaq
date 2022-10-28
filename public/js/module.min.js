@@ -16,7 +16,9 @@ $(document).ready(function() {
 		mouseX = ( event.clientX - windowHalfX ) / 2;
 		mouseY = ( event.clientY - windowHalfY ) / 2;
 	}
-
+	if (window.innerWidth > 1200  && $('#myTurntable').length > 0){
+		$('#myTurntable').turntable();
+	}
 
 	if (window.innerWidth > 1200 && $('#model3d').length > 0) {
 		let camera, controls, scene, renderer;

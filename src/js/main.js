@@ -5,6 +5,7 @@
 //= ./libs/progressbar.min.js
 //= ./libs/gsap.min.js
 //= ./libs/ScrollTrigger.min.js
+//= ./libs/turntable.js
 
 
 
