@@ -125,16 +125,26 @@
 
     } else {
       // mouseover
-      return $turntable.on("mousemove", function (e) {
+     /* return $turntable.on("mousemove", function (e) {
         var offset = $(this).offset();
         var position;
         if (settings.axis === 'y') {
           position = e.pageY - offset.top;
         } else {
-          position = e.pageX - offset.left;
+          position = e.screenX - offset.left;
         }
+
+
         applyClasses(sections, position);
-      });  
+      });*/
+
+	    return $(document).on("mousemove", function (e) {
+	    	let proportionals = $turntable.innerWidth() / window.innerWidth
+		    let position;
+		    position = e.screenX * proportionals;
+		    applyClasses(sections, position);
+	    });
+
 
     }
   }; //end if
