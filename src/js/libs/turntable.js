@@ -141,7 +141,7 @@
 	    return $(document).on("mousemove", function (e) {
 	    	let proportionals = $turntable.innerWidth() / window.innerWidth
 		    let position;
-		    position = e.screenX * proportionals;
+		    position = e.pageX * proportionals;
 		    applyClasses(sections, position);
 	    });
 
