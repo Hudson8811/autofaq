@@ -96,6 +96,37 @@
 		}
 	}
 
+	&__slider {
+		position: absolute;
+		bottom: 0;
+		left: 48%;
+		z-index: 1;
+		transform: translateX(-50%);
+		width: 715px;
+		height: 466px;
+		overflow: hidden;
+
+		@include max(lg) {
+			display: none;
+			position: relative;
+			left: unset;
+			bottom: unset;
+			transform: none;
+		}
+
+		@media (max-width: 1600px) {
+			width: vw(900);
+			height: vw(570);
+		}
+
+		.turntable{
+			width: 100%;
+		}
+		img{
+			width: 100%;
+		}
+	}
+
 	&__title {
 		font-size: 460px;
 		line-height: 500px;
