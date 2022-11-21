@@ -180,7 +180,19 @@
 				width: 300px;
 			}
 		}
-
+		.calculate__calc-item-title {
+			font-family: SuisseIntl,sans-serif;
+			font-size: 25px;
+			line-height: 30px;
+			font-weight: 400;
+			letter-spacing: -.3px;
+			color: #fff;
+			text-transform: none;
+			@media (max-width: 767px){
+				font-size: 18px;
+				line-height: 22px;	
+			}
+		}
 		.select2-container--default {
 			.select2-selection--single {
 				.select2-selection__rendered {
