@@ -1,11 +1,13 @@
-$(document).ready(function() {
-	function toggleInput(){
-		if(this.value){
-			$(this).parent('.input-wrapper').addClass('active');
-		}else{
-			$(this).parent('.input-wrapper').removeClass('active');
+(function ($) {
+	$(document).ready(function() {
+		function toggleInput(){
+			if(this.value){
+				$(this).parent('.input-wrapper').addClass('active');
+			}else{
+				$(this).parent('.input-wrapper').removeClass('active');
+			}
 		}
-	}
-	$('.form-item-anim__input').each(toggleInput);
-	$('.form-item-anim__input').on('input',toggleInput);
-})
+		$('.webform-submission-zaprosit-demo-form .form-item.form-no-label input').each(toggleInput);
+		$('.webform-submission-zaprosit-demo-form .form-item.form-no-label input').on('input',toggleInput);
+	});
+})(jQuery);

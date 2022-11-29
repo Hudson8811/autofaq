@@ -217,7 +217,7 @@
 
 	&__person,
 	&__comment {
-		width: 49%;
+		width: 48%;
 
 		@include max(lg) {
 			width: 100%;
@@ -250,6 +250,10 @@
 		border-radius: 50%;
 		overflow: hidden;
 		margin-right: 30px;
+
+		img {
+			min-width: 100%;
+		}
 
 		@include max(lg) {
 			max-width: 49px;

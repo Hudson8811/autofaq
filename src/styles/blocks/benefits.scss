@@ -69,6 +69,10 @@
 		position: relative;
 		z-index: 1;
 
+		@media only screen and (min-width: 1279px) {
+			margin-left: -26px;
+		}
+
 		@include max(lg) {
 			font-size: 45px;
 			line-height: 55px;

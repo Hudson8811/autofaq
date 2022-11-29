@@ -25,7 +25,7 @@
 		margin-top: 50px;
 	}
 }
-.form-item-anim {
+.form-item-anim, .form-item-anim__input {
 	position: relative;
 	margin-top: 60px;
 	@media (max-width: 767px){
@@ -65,12 +65,12 @@
 				border-color: #2764C0;
 				border-width: 3px;
 			}
-	
+
 			label {
 				font-size: 16px;
 				transform: translate(0, calc(-100% - 16px));
 				opacity: 0.5;
-	
+
 				@media (max-width: 767px) {
 					transform: translate(0, calc(-100% - 5px));
 					font-size: 12px;
@@ -93,7 +93,7 @@
 			padding-bottom: 15px;
 			font-size: 18px;
 		}
-		
+
 		&:focus {
 			border-color: #2764C0;
 			border-width: 3px;
@@ -110,7 +110,7 @@
 	}
 }
 
-.form-item-agreement {
+.form-item-agreement, .form-type-webform-terms-of-service {
 	margin-top: 50px;
 	input {
 		display: none;
