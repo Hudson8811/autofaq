@@ -12,24 +12,27 @@
 		padding: 6px 14px 24px;
 	}
 
-	&:hover {
-		#{$parent} {
-			&__bg::before {
-				opacity: 0;
-			}
 
-			&__top {
-				border-color: rgba($white, 0.6);
-			}
+		&:hover {
+			@include min(md) {
+				#{$parent} {
+					&__bg::before {
+						opacity: 0;
+					}
 
-			&__day,
-			&__month,
-			&__year,
-			&__text {
-				color: $white;
+					&__top {
+						border-color: rgba($white, 0.6);
+					}
+
+					&__day,
+					&__month,
+					&__year,
+					&__text {
+						color: $white;
+					}
+				}
 			}
 		}
-	}
 
 	&__bg {
 		position: absolute;

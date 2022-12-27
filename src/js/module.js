@@ -223,6 +223,13 @@ var windowHalfY = window.innerHeight / 2;
 
 
   $(document).ready(function () {
+
+    $('a.chat--open, button.chat--open').click(function () {
+      if (typeof autofaq !== 'undefined') {
+        autofaq.open();
+      }
+    });
+
     function toggleInput() {
       if (this.value) {
         $(this).parent('.input-wrapper').addClass('active');

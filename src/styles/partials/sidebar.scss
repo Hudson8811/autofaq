@@ -45,9 +45,10 @@
 	@include max(lg) {
 		flex-direction: row;
 		width: 100%;
-		height: 50px;
-		padding: 5px 18px 0;
+		height: 56px;
+		padding: 5px 18px;
 		border-right: 0;
+		border-bottom: 1px solid #d0d0d0;
 	}
 
 	&__smile {
@@ -57,6 +58,8 @@
 		@include max(lg) {
 			width: 22px;
 			height: 22px;
+			order:0;
+			margin-right: auto!important;
 		}
 
 		svg {
@@ -77,6 +80,8 @@
 			width: auto;
 			height: 100%;
 			flex-grow: unset;
+			order:3;
+			margin-left: 48px;
 		}
 	}
 
@@ -110,7 +115,11 @@
 
 	&__lang-switcher {
 		@include max(lg) {
-			display: none;
+			/*display: none;*/
+			width: auto;
+			height: 56px;
+			border-top:0;
+			order:1;
 		}
 
 		select {

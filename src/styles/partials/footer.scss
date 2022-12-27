@@ -207,14 +207,13 @@
 	}
 
 	&__logo-caption {
-		max-width: 234px;
 		font-family: $secondFont;
 		font-size: 16px;
 		line-height: 19px;
 		color: $white;
+		width: 50%;
 
 		@media (max-width: 992px) {
-			max-width: 144px;
 			font-size: 12px;
 			line-height: 140.3%;
 			letter-spacing: -0.015em;

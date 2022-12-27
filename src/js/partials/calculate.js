@@ -7,6 +7,7 @@
 
 		range1.on('input', function () {
 			result1.text(calcEconomy($(this).val()));
+			result2.text(calcRoi());
 		});
 
 		range2.on('input', function () {
